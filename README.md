@@ -4,7 +4,7 @@ Skradon Apps
 </b></p>
 
 ## Instalasi
-- atau clone : git clone 
+- atau clone : git clone https://github.com/arzarizky/skadron-apps.git
 
 ## Setup
 - buka direktori project di terminal anda.
