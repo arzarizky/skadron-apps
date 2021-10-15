@@ -24,7 +24,6 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Role</th>
                             <th>Action</th>
                         </tr>
@@ -51,10 +50,6 @@
         <div class="form-group">
             <label for="n">Name</label>
             <input type="" required="" id="n" name="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="e">Email</label>
-            <input type="" required="" id="e" name="email" class="form-control">
         </div>
         <div class="form-group">
             <label for="p">Password</label>
@@ -95,10 +90,6 @@
             <label for="name">Name</label>
             <input type="hidden" required="" id="id" name="id" class="form-control">
             <input type="" required="" id="name" name="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="" required="" id="email" name="email" class="form-control">
         </div>
         <div class="form-group">
             <label for="role">Role</label>
@@ -156,7 +147,6 @@
         columns: [
             {data: 'DT_RowIndex' , name: 'id'},
             {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
             {data: 'role', name: 'role'},
             {data: 'action', name: 'action', orderable: false, searchable: true},
         ]
@@ -167,7 +157,6 @@
     // Reset Form
         function resetForm(){
             $("[name='name']").val("")
-            $("[name='email']").val("")
             $("[name='password']").val("")
         }
     //
@@ -203,7 +192,6 @@
                 $("#edit-modal").modal("show")
                 $("#id").val(response.id)
                 $("#name").val(response.name)
-                $("#email").val(response.email)
                 $("#role").val(response.role)
             }
         })
