@@ -640,6 +640,7 @@
             </div>
         </div>
     </div>
+</div>
 @stop
 
 @push('js')
