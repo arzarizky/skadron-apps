@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CrmController;
+use App\Http\Controllers\Api\EodController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,5 @@ Route::middleware(['jwt.verify'])->group(function () {
     Route::post('activate-account', [AuthController::class, 'activateAccount']);
 
     Route::get('/crm', [CrmController::class, 'index']);
+    Route::get('/eod', [EodController::class, 'index']);
 });
