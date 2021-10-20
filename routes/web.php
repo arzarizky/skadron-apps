@@ -30,7 +30,7 @@ use App\Http\Controllers\User\CrmController;
 |
 */
 
-Route::view('/','welcome');
+Route::view('/home','welcome');
 
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
@@ -99,13 +99,13 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'crm'],f
 });
 
 Route::group(['namespace' => 'Auth','middleware' => 'guest'],function(){
-	Route::view('/login','auth.login')->name('login');
-	Route::post('/login',[LoginController::class,'authenticate'])->name('login.post');
+	Route::view('/','auth.login')->name('login');
+	Route::post('/',[LoginController::class,'authenticate'])->name('login.post');
 });
 
 // Other
 Route::view('/register','auth.register')->name('register');
 Route::view('/forgot-password','auth.forgot-password')->name('forgot-password');
 Route::post('/logout',function(){
-	return redirect()->to('/login')->with(Auth::logout());
+	return redirect()->to('/')->with(Auth::logout());
 })->name('logout');

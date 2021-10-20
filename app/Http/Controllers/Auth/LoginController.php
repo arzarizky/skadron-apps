@@ -14,7 +14,7 @@ class LoginController extends Controller
 		$credentials = request()->only(['nomor_anggota','password']);
 
 		if (Auth::attempt($credentials)) {
-			return redirect()->intended('user');
+			return redirect()->intended('home');
 		}else{
 			return back()->with('error','Login gagal');
 		}
