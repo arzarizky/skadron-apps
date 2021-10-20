@@ -599,6 +599,47 @@
     </div>
 </div>
 
+<div class="card-deck mt-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered data-table" id="">
+                    <thead>
+                        <tr>
+                            <th colspan="2" style="vertical-align: middle; text-align: center">KUALIFIKASI PENERBANGAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: middle; text-align: center">A</td>
+                            <td style="vertical-align: middle; text-align: center">IP/CX PILOT</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered data-table" id="">
+                    <thead>
+                        <tr>
+                            <th colspan="2" style="vertical-align: middle; text-align: center">NILAI ANGKA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: middle; text-align: center">1 = AMAN</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 @stop
 
 @push('js')
