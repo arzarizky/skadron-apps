@@ -30,7 +30,7 @@ use App\Http\Controllers\User\CrmController;
 |
 */
 
-Route::view('/','welcome');
+Route::view('/home','welcome');
 
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
@@ -89,23 +89,29 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eet'],f
 //eod
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eod'],function(){
 	Route::get('/',[EodController::class,'index'])->name('eod');
+	Route::get('/add-eod',[EodController::class,'addeod'])->name('add.eod');
+	Route::get('/detail-eod',[EodController::class,'detaileod'])->name('detail.eod');
+	Route::get('/update-eod',[EodController::class,'updateeod'])->name('update.eod');
 
 });
 
 //crm
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'crm'],function(){
 	Route::get('/',[CrmController::class,'index'])->name('crm');
+	Route::get('/add-crm',[CrmController::class,'addcrm'])->name('add.crm');
+	Route::get('/detail-crm',[CrmController::class,'detailcrm'])->name('detail.crm');
+	Route::get('/update-crm',[CrmController::class,'updatecrm'])->name('update.crm');
 
 });
 
 Route::group(['namespace' => 'Auth','middleware' => 'guest'],function(){
-	Route::view('/login','auth.login')->name('login');
-	Route::post('/login',[LoginController::class,'authenticate'])->name('login.post');
+	Route::view('/','auth.login')->name('login');
+	Route::post('/',[LoginController::class,'authenticate'])->name('login.post');
 });
 
 // Other
 Route::view('/register','auth.register')->name('register');
 Route::view('/forgot-password','auth.forgot-password')->name('forgot-password');
 Route::post('/logout',function(){
-	return redirect()->to('/login')->with(Auth::logout());
+	return redirect()->to('/')->with(Auth::logout());
 })->name('logout');

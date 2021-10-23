@@ -19,6 +19,7 @@
     rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/backend/sb-admin-2') }}/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{ asset('plugins/summernote') }}/summernote-bs4.min.css" rel="stylesheet">
     @stack('css')
 </head>
 
@@ -102,7 +103,10 @@
 
     <!-- Page level plugins -->
     <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/chart.js/Chart.min.js"></script>
-
+    <!-- summernote -->
+    <script src="{{ asset('plugins/summernote') }}/summernote-bs4.min.js"></script>
+    <script src="{{ asset('plugins/summernote') }}/summernote-bs4.min.js.map"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <!-- Page level custom scripts -->
     <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/chart-area-demo.js"></script>
     <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/chart-pie-demo.js"></script>
