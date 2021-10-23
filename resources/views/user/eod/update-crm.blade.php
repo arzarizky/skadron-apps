@@ -1,11 +1,11 @@
 @extends('layout.backend.app',[
-	'title' => ' Update Crm',
+	'title' => ' Update EOD',
 ])
 @section('content')
 
 <div class="card mb-4">
     <div class=" mb-4 mt-4 text-center">
-        <h3> Update CRM  </h3>
+        <h3> Update EOD  </h3>
     </div>
 </div>
 
@@ -22,17 +22,17 @@
             <textarea id="summernote" name="editordata"></textarea>
           </form>
           <div class="mt-4 ml-2">
-            <a href="{{ route('detail.crm') }}" class="btn btn-secondary btn-icon-split mr-3">
+            <a href="{{ route('detail.eod') }}" class="btn btn-secondary btn-icon-split mr-3">
               <span class="icon text-white-50">
                   <i class="fas fa-arrow-left"></i>
               </span>
-              <span class="text">Cancel Update CRM</span>
+              <span class="text">Cancel Update EOD</span>
             </a>
-            <a href="{{ route('crm') }}" class="btn btn-success btn-icon-split">
+            <a href="{{ route('eod') }}" class="btn btn-success btn-icon-split">
               <span class="icon text-white-50">
                   <i class="fas fa-check"></i>
               </span>
-              <span class="text">Simpan Update CRM</span>
+              <span class="text">Simpan Update EOD</span>
             </a>
           </div>
         </div>

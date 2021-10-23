@@ -1,16 +1,37 @@
 @extends('layout.backend.app',[
-	'title' => ' Update Crm',
+	'title' => ' Detail Eod',
 ])
 @section('content')
 
 <div class="card mb-4">
     <div class=" mb-4 mt-4 text-center">
-        <h3> Update CRM  </h3>
+        <h3> Detail EOD  </h3>
     </div>
 </div>
 
 <div class="card">
   <div class="card-deck mt-4 mb-4">
+    <div class="card ml-5 mr-5 col-lg-3">
+        <div class="card-body ">
+          <div class="border-bottom-danger">
+            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
+                <h3> RIWAYAT EOD </h3>
+            </div>
+          </div>
+          <div class=" mt-3 ">
+            <p>
+              EOD ditambahkan pada tanggal 
+              get->date(pada saat ditambahkan) oleh get->role(pada saat ditambahkan) bernama get->name(pada saat ditambahkan)
+            </p>
+            <hr class="my-4">
+            <p>
+              EOD diupdate pada tanggal 
+              get->date(pada saat diupdate) oleh get->role(pada saat diupdate) bernama get->name(pada saat diupdate)
+            </p>
+          </div>
+        </div>
+    </div>
+
     <div class="card ml-5 mr-5">
         <div class="card-body">
           <div class="border-bottom-danger">
@@ -22,17 +43,17 @@
             <textarea id="summernote" name="editordata"></textarea>
           </form>
           <div class="mt-4 ml-2">
-            <a href="{{ route('detail.crm') }}" class="btn btn-secondary btn-icon-split mr-3">
+            <a href="{{ route('eod') }}" class="btn btn-secondary btn-icon-split mr-3">
               <span class="icon text-white-50">
                   <i class="fas fa-arrow-left"></i>
               </span>
-              <span class="text">Cancel Update CRM</span>
+              <span class="text">Kembali</span>
             </a>
-            <a href="{{ route('crm') }}" class="btn btn-success btn-icon-split">
+            <a href="{{ route('update.eod') }}" class="btn btn-warning btn-icon-split mr-3">
               <span class="icon text-white-50">
-                  <i class="fas fa-check"></i>
+                  <i class="fas fa-exclamation-triangle"></i>
               </span>
-              <span class="text">Simpan Update CRM</span>
+              <span class="text">Update EOD</span>
             </a>
           </div>
         </div>

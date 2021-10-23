@@ -23,7 +23,7 @@
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>
-    <span class="text">Tambah Crm</span>
+    <span class="text">Tambah CRM</span>
 </a>
 </div>
 <div class="card">

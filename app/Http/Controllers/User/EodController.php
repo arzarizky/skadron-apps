@@ -11,4 +11,19 @@ class EodController extends Controller
     {
         return view('user.eod.index');
     }
+
+    public function addeod()
+    {
+        return view('user.eod.add-crm');
+    }
+
+    public function detaileod()
+    {
+        return view('user.eod.detail-crm');
+    }
+
+    public function updateeod()
+    {
+        return view('user.eod.update-crm');
+    }
 }

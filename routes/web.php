@@ -89,6 +89,9 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eet'],f
 //eod
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eod'],function(){
 	Route::get('/',[EodController::class,'index'])->name('eod');
+	Route::get('/add-eod',[EodController::class,'addeod'])->name('add.eod');
+	Route::get('/detail-eod',[EodController::class,'detaileod'])->name('detail.eod');
+	Route::get('/update-eod',[EodController::class,'updateeod'])->name('update.eod');
 
 });
 
