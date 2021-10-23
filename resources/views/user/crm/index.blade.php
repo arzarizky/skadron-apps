@@ -1,7 +1,7 @@
 @extends('layout.backend.app',[
 	'title' => 'Crm',
-	'pageTitle' => 'Crm',
 ])
+
 @section('content')
 <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
@@ -10,46 +10,58 @@
   <p>Anda login sebagai {{ Auth::user()->role }}.</p>
 </div>
 
-<div class="card">
-  <div class="card-deck mt-4 mb-4">
-    <div class="card ml-5 mr-5 col-lg-3">
-        <div class="card-body ">
-          <div class="border-bottom-danger">
-            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                <h3> TANGGAL </h3>
-            </div>
-          </div>
-          <div class="text-center mt-4 mb-4 mr-4 ml-4">
-              <input type="date" class="form-control datepicker" style="align-items: center" id="pada_tanggal" onchange="tanggal()">
-              <a href="" class="btn btn-secondary btn-icon-split mt-3">
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
-                <span class="text">Lihat Detail CRM Tanggal <span id="hasil_tanggal"></span></span>
-            </a>
-          </div>
-        </div>
-    </div>
-
-    <div class="card ml-5 mr-5">
-        <div class="card-body">
-          <div class="border-bottom-danger">
-            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                <h3> ATTENTION </h3>
-            </div>
-          </div>
-          <form class="mt-4">
-            <textarea id="summernote" name="editordata"></textarea>
-          </form>
-          <a href="" class="btn btn-success btn-icon-split mt-3 ml-2">
-            <span class="icon text-white-50">
-                <i class="fas fa-check"></i>
-            </span>
-            <span class="text">Simpan CRM</span>
-          </a>
-        </div>
-    </div>
+<div class="card mb-4 mt-4">
+  <div class="border-bottom-danger">
+      <!-- Button trigger modal -->
+      <div class="ml-4 mt-2 mb-4 mt-4 text-center">
+          <h3> DATA CRM </h3>
+      </div>
+  </div>
 </div>
+<div class="mb-3">
+  <a href="{{ route('add.crm') }}" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Tambah Crm</span>
+</a>
+</div>
+<div class="card">
+  <div class="card-body">
+      <div class="table-responsive">
+          <table class="table table-bordered data-table" id="">
+              <thead>
+                  <tr>
+                      <th style="vertical-align: middle; text-align: center">No</th>
+                      <th style="vertical-align: middle; text-align: center ">Tanggal</th>
+                      <th style="vertical-align: middle; text-align: center ">Pembuat</th>
+                      <th style="vertical-align: middle; text-align: center ">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="vertical-align: middle; text-align: center">1</td>
+                  <td style="vertical-align: middle; text-align: center">10/23/20</td>
+                  <td style="vertical-align: middle; text-align: center">Admin(get role yang menambkan) Arza Rizky(get name yang menambahkan)</td>
+                  <td style="vertical-align: middle; text-align: center">
+                    <a href="{{ route('detail.crm') }}" class="btn btn-warning btn-icon-split mr-3">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-info"></i>
+                      </span>
+                      <span class="text">Detail CRM</span>
+                    </a>
+                    <a href="#" class="btn btn-danger btn-icon-split">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                      </span>
+                      <span class="text">Hapus CRM</span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
 </div>
 
 @endsection
