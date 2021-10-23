@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CrmController;
 use App\Http\Controllers\Api\EodController;
+use App\Http\Controllers\Api\HurtController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::middleware(['jwt.verify'])->group(function () {
 
     Route::get('/crm', [CrmController::class, 'index']);
     Route::get('/eod', [EodController::class, 'index']);
+
+    Route::post('/hurt/submit', [HurtController::class, 'submit']);
 });
