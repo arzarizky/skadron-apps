@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\SubmitHurtRequest;
 use App\Models\Hurt;
 use Illuminate\Http\Request;
+use PDF;
 
 class HurtController extends ApiController
 {
@@ -1232,5 +1233,12 @@ class HurtController extends ApiController
         ]);
 
         return $this->successResponse($hurt, "success");
+    }
+
+    public function downloadPdf(Hurt $hurt)
+    {
+        $name = auth()->user()->name;
+        $pdf = PDF::loadview('pdf.hurt',compact('hurt', 'name'))->setPaper('a4', 'landscape');
+    	return $pdf->download('laporan-hurt.pdf');
     }
 }

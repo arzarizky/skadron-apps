@@ -29,4 +29,5 @@ Route::middleware(['jwt.verify'])->group(function () {
     Route::get('/eod', [EodController::class, 'index']);
 
     Route::post('/hurt/submit', [HurtController::class, 'submit']);
+    Route::get('/hurt/pdf/{hurt}', [HurtController::class, 'downloadPdf']);
 });

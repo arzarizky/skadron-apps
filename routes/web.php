@@ -7,7 +7,6 @@ use App\Http\Controllers\Auth\LoginController;
 
 //Namespace Admin
 use App\Http\Controllers\Admin\AdminController;
-
 //Namespace User
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\ProfileController;
@@ -77,6 +76,8 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'bold-fa
 //hurt
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'hurt'],function(){
 	Route::get('/',[HurtController::class,'index'])->name('hurt');
+
+	Route::get('/pdf/{hurt}', [HurtController::class, 'downloadPdf']);
 
 });
 
