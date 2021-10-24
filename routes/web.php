@@ -77,6 +77,7 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'bold-fa
 //hurt
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'hurt'],function(){
 	Route::get('/',[HurtController::class,'index'])->name('hurt');
+	Route::get('/detail-hurt',[HurtController::class,'detailhurt'])->name('detail.hurt');
 
 });
 
