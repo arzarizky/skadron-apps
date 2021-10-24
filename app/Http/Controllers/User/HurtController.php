@@ -11,4 +11,8 @@ class HurtController extends Controller
     {
         return view('user.hurt.index');
     }
+    public function detailhurt()
+    {
+        return view('user.hurt.detail-hurt');
+    }
 }
