@@ -34,4 +34,5 @@ Route::middleware(['jwt.verify'])->group(function () {
 
     Route::post('/bold-face/series-200', [BoldFaceController::class, 'submitSeries200']);
     Route::post('/bold-face/series-400', [BoldFaceController::class, 'submitSeries400']);
+    Route::get('/bold-face/pdf/{boldface}', [BoldFaceController::class, 'downloadPdf']);
 });

@@ -37,7 +37,10 @@ return [
         'enabled' => true,
         'binary'  => '"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf"',
         'timeout' => false,
-        'options' => [],
+        'options' => [
+            'enable-local-file-access' => true,
+            'keep-relative-links' => true,
+        ],
         'env'     => [],
     ],
     
