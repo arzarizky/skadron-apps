@@ -20,4 +20,9 @@ class HurtController extends Controller
         $pdf = PDF::loadview('pdf.hurt',compact('hurt', 'name'))->setPaper('a4', 'landscape');
     	return $pdf->inline();
     }
+    
+    public function detailhurt()
+    {
+        return view('user.hurt.detail-hurt');
+    }
 }
