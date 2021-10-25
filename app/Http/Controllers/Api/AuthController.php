@@ -21,7 +21,7 @@ class AuthController extends Controller
         
         if (! $token = auth('api')->attempt($credentials)) {
             $response['message'] = "Nomor anggota atau password salah!";
-            return get_json_response($response, 401);
+            return get_json_response($response, 200);
         }
 
         $user = auth('api')->user();

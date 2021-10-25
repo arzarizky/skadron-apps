@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                 'nrp'               => '987654321',
                 'password'          => Hash::make('admin'),
                 'role'              => 'admin',
+                'phone'             => '082233795350',
             ],
             [
                 'name'              => 'Derik Dwi Heavyanto',
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 'nrp'               => '123456789',
                 'password'          => Hash::make('jendral'),
                 'role'              => 'komandan',
+                'phone'             => '082233795350',
             ],
             [
                 'name'              => 'Annga',
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
                 'nrp'               => '123456789',
                 'password'          => Hash::make('user'),
                 'role'              => 'anggota',
+                'phone'             => '082233795350',
             ],
         ]);
     }
