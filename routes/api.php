@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BoldFaceController;
 use App\Http\Controllers\Api\CrmController;
 use App\Http\Controllers\Api\EodController;
 use App\Http\Controllers\Api\HurtController;
@@ -30,4 +31,7 @@ Route::middleware(['jwt.verify'])->group(function () {
 
     Route::post('/hurt/submit', [HurtController::class, 'submit']);
     Route::get('/hurt/pdf/{hurt}', [HurtController::class, 'downloadPdf']);
+
+    Route::post('/bold-face/series-200', [BoldFaceController::class, 'submitSeries200']);
+    Route::post('/bold-face/series-400', [BoldFaceController::class, 'submitSeries400']);
 });
