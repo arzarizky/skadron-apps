@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BoldFaceController;
 use App\Http\Controllers\Api\CrmController;
+use App\Http\Controllers\Api\EetController;
 use App\Http\Controllers\Api\EodController;
 use App\Http\Controllers\Api\HurtController;
 use Illuminate\Http\Request;
@@ -35,4 +36,8 @@ Route::middleware(['jwt.verify'])->group(function () {
     Route::post('/bold-face/series-200', [BoldFaceController::class, 'submitSeries200']);
     Route::post('/bold-face/series-400', [BoldFaceController::class, 'submitSeries400']);
     Route::get('/bold-face/pdf/{boldface}', [BoldFaceController::class, 'downloadPdf']);
+
+    Route::get('/eet/routes-1', [EetController::class, 'getListRoute1']);
+    Route::get('/eet/routes-2', [EetController::class, 'getListRoute2']);
+    Route::get('/eet/get-route', [EetController::class, 'getRoute']);
 });
