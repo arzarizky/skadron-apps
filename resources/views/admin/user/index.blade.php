@@ -8,240 +8,136 @@
 @endpush
 
 @section('content')
-<div class="notify"></div>
 
+<div class="jumbotron">
+  <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
+  <p class="lead">Selamat datang di halaman <span><b>EET</b></span></p>
+  <hr class="my-4">
+  <p>Anda login sebagai {{ Auth::user()->role }}</p>
+  <p>Selamat bekerja dan sehat selalu :)</p>
+</div>
+
+<div class="card mb-4 mt-4">
+  <div class="border-bottom-danger">
+      <!-- Button trigger modal -->
+      <div class="ml-4 mt-2 mb-4 mt-4 text-center">
+          <h3><b> Data User </b></h3>
+      </div>
+  </div>
+</div>
+<div class="mb-3">
+  <a href="{{ route('adduser') }}" class="btn btn-success btn-icon-split">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Tambah USER</span>
+</a>
+</div>
 <div class="card">
-    <div class="card-header">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal">
-          Tambah Data
-        </button>
-    </div>
-        <div class="card-body">
-            <div class="table-responsive">    
-                <table class="table table-bordered data-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Role</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-</div>
-
-<!-- Modal Create -->
-<div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="create-modalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="create-modalLabel">Create Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="card-body">
+      <div class="table-responsive">
+        <form action="{{ route('admin') }}" method="GET" class=" mr-auto mb-3 mt-2 navbar-search col-md-3">
+          <div class="input-group">
+              <input type="search" id="inputPassword6" name="search" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-search fa-sm"></i>
+                  </button>
+              </div>
+          </div>
+      </form>
+          <table class="table table-bordered data-table" id="">
+              <thead>
+                  <tr>
+                      <th style="vertical-align: middle; text-align: center">No</th>
+                      <th style="vertical-align: middle; text-align: center ">NAMA</th>
+                      <th style="vertical-align: middle; text-align: center ">NOMOR ANGGOTA</th>
+                      <th style="vertical-align: middle; text-align: center ">NRP</th>
+                      <th style="vertical-align: middle; text-align: center ">NO HP</th>
+                      <th style="vertical-align: middle; text-align: center ">PANGKAT</th>
+                      <th style="vertical-align: middle; text-align: center ">KUALIFIKASI</th>
+                      <th style="vertical-align: middle; text-align: center ">ROLE</th>
+                      <th style="vertical-align: middle; text-align: center ">TERAKHIR DI UPDATE</th>
+                      <th style="vertical-align: middle; text-align: center ">Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                @php
+                    $no = 1;
+                @endphp
+                @foreach ($data as $index => $row)
+                <tr>
+                  <td style="vertical-align: middle; text-align: center">{{ $index + $data->firstItem() }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->name }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->nomor_anggota }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->nrp }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->phone }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->pangkat }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->kualifikasi }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->role }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->updated_at }}</td>
+                  <td style="vertical-align: middle; text-align: center">
+                    <div> 
+                      <a href="{{ route('edit.data', ['id'=> $row->id]) }}" class="btn btn-warning btn-icon-split" style="padding-right: 15px;">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-exclamation-triangle"></i>
+                      </span>
+                      <span class="text">Edit User</span>
+                      </a>
+                    </div>
+                   <div>
+                    <form action="" class="d-inline">
+                    <a href="#" data-id="{{ $row->id }}" data-name="{{ $row->name }}" class="btn btn-danger btn-icon-split delete mt-2">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                      </span>
+                      <span class="text">Delete User</span>
+                    </a>
+                    </form>
+                   </div>
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
+          </table>
+          <div class="d-flex justify-content-center">
+            {{ $data->links() }}
+          </div>
       </div>
-      <div class="modal-body">
-        <form id="createForm">
-        <div class="form-group">
-            <label for="n">Name</label>
-            <input type="" required="" id="n" name="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="p">Password</label>
-            <input type="password" required="" id="p" name="password" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="r">Role</label>
-            <select name="role" id="r" class="form-control">
-                <option disabled="">- PILIH ROLE -</option>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary btn-store">Simpan</button>
-        </form>
-      </div>
-    </div>
   </div>
 </div>
-<!-- Modal Create -->
-
-<!-- Modal Edit -->
-<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="edit-modalLabel">Edit Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="editForm">
-        <div class="form-group">
-            <label for="name">Name</label>
-            <input type="hidden" required="" id="id" name="id" class="form-control">
-            <input type="" required="" id="name" name="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="role">Role</label>
-            <select name="role" id="role" class="form-control">
-                <option disabled="">- PILIH ROLE -</option>
-                <option value="admin">Admin</option>
-                <option value="user">User</option>
-            </select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary btn-update">Update</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal Edit -->
-
-<!-- Destroy Modal -->
-<div class="modal fade" id="destroy-modal" tabindex="-1" role="dialog" aria-labelledby="destroy-modalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="destroy-modalLabel">Yakin Hapus ?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="button" class="btn btn-danger btn-destroy">Hapus</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Destroy Modal -->
-
 @stop
 
 @push('js')
-<script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/datatables-demo.js"></script>
 
-<script type="text/javascript">
+<script>
+  $('.delete').click(function () {
+      var userid = $(this).attr('data-id');
+      var name = $(this).attr('data-name');
 
-  $(function () {
-    
-    var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('user.index') }}",
-        columns: [
-            {data: 'DT_RowIndex' , name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'role', name: 'role'},
-            {data: 'action', name: 'action', orderable: false, searchable: true},
-        ]
-    });
+      swal({
+          title: "Yakin ?",
+          text: "Kamu akan menghapus data pegawai dengan nama " + name + " ",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+      })
+          .then((willDelete) => {
+              if (willDelete) {
+                  window.location = "/admin/delete/" + userid + ""
+                  swal("Data berhasil di hapus", {
+                      icon: "success",
+                  });
+              } else {
+                  swal("Data tidak jadi dihapus");
+              }
+          });
   });
+</script>
 
-
-    // Reset Form
-        function resetForm(){
-            $("[name='name']").val("")
-            $("[name='password']").val("")
-        }
-    //
-
-    // Create 
-
-    $("#createForm").on("submit",function(e){
-        e.preventDefault()
-
-        $.ajax({
-            url: "/admin/user",
-            method: "POST",
-            data: $(this).serialize(),
-            success:function(){
-                $("#create-modal").modal("hide")
-                $('.data-table').DataTable().ajax.reload();
-                flash("success","Data berhasil ditambah")
-                resetForm()
-            }
-        })
-    })
-
-    // Create
-
-    // Edit & Update
-    $('body').on("click",".btn-edit",function(){
-        var id = $(this).attr("id")
-        
-        $.ajax({
-            url: "/admin/user/"+id+"/edit",
-            method: "GET",
-            success:function(response){
-                $("#edit-modal").modal("show")
-                $("#id").val(response.id)
-                $("#name").val(response.name)
-                $("#role").val(response.role)
-            }
-        })
-    });
-
-    $("#editForm").on("submit",function(e){
-        e.preventDefault()
-        var id = $("#id").val()
-
-        $.ajax({
-            url: "/admin/user/"+id,
-            method: "PATCH",
-            data: $(this).serialize(),
-            success:function(){
-                $('.data-table').DataTable().ajax.reload();
-                $("#edit-modal").modal("hide")
-                flash("success","Data berhasil diupdate")
-            }
-        })
-    })
-    //Edit & Update
-
-    $('body').on("click",".btn-delete",function(){
-        var id = $(this).attr("id")
-        $(".btn-destroy").attr("id",id)
-        $("#destroy-modal").modal("show")
-    });
-
-    $(".btn-destroy").on("click",function(){
-        var id = $(this).attr("id")
-
-        $.ajax({
-            url: "/admin/user/"+id,
-            method: "DELETE",
-            success:function(){
-                $("#destroy-modal").modal("hide")
-                $('.data-table').DataTable().ajax.reload();
-                flash('success','Data berhasil dihapus')
-            }
-        });
-    })
-
-    function flash(type,message){
-        $(".notify").html(`<div class="alert alert-`+type+` alert-dismissible fade show" role="alert">
-                              `+message+`
-                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>`)
-    }
-
+<script>
+  @if (Session:: has('success'))
+  toastr.success("{{ Session::get('success') }}")
+  @endif
 </script>
 @endpush
