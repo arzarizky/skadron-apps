@@ -21,7 +21,7 @@ class AuthController extends Controller
         
         if (! $token = auth('api')->attempt($credentials)) {
             $response['message'] = "Nomor anggota atau password salah!";
-            return get_json_response($response, 401);
+            return get_json_response($response, 200);
         }
 
         $user = auth('api')->user();
@@ -30,7 +30,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'user' => $user,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL()
         ];
 
         return get_json_response($response);
