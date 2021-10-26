@@ -44,6 +44,12 @@ Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin']
 	Route::post('/updatedata/{user}',[AdminController::class, 'updatedata'])->name('update.data');
 	Route::get('/delete/{id}',[AdminController::class, 'delete'])->name('delete');
 
+	//export Excel
+	Route::get('/exportexcel',[AdminController::class, 'exportexcel'])->name('export.excel');
+
+	//export Excel
+	Route::post('/importexcel',[AdminController::class, 'importexcel'])->name('import.excel');
+
 	
 
 	//Route View

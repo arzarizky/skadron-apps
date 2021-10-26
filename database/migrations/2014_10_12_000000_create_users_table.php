@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('pangkat');
             $table->string('kualifikasi');
             $table->string('nrp');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->enum('role',['admin','anggota', 'komandan'])->nullable();
