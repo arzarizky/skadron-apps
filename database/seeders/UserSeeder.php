@@ -19,8 +19,11 @@ class UserSeeder extends Seeder
             [
                 'name'              => 'Arza Rizky Nova Ramadhani',
                 'nomor_anggota'     => '123456789',
-                'pangkat'           => 'kopral IT (admin)',
+                'pangkat'           => 'Mayor Nav',
                 'nrp'               => '987654321',
+                'phone'             => '082244862271',
+                'kualifikasi'       => 'Check Pilot',
+                'foto'              => 'Check Pilot',
                 'password'          => Hash::make('admin'),
                 'role'              => 'admin',
             ],
@@ -31,6 +34,9 @@ class UserSeeder extends Seeder
                 'nrp'               => '123456789',
                 'password'          => Hash::make('jendral'),
                 'role'              => 'komandan',
+                'phone'             => '082244862271',
+                'kualifikasi'       => 'Check Pilot',
+                'foto'              => 'Check Pilot',
             ],
             [
                 'name'              => 'Annga',
@@ -39,6 +45,9 @@ class UserSeeder extends Seeder
                 'nrp'               => '123456789',
                 'password'          => Hash::make('user'),
                 'role'              => 'anggota',
+                'phone'             => '082244862271',
+                'kualifikasi'       => 'Check Pilot',
+                'foto'              => 'Check Pilot',
             ],
         ]);
     }
