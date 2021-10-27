@@ -26,8 +26,8 @@ class UsersImport implements ToModel, WithStartRow
             'kualifikasi'       => $row[3], 
             'nrp'               => $row[4], 
             'password'          => Hash::make($row[8]),
-            'role'              => $row[10], 
-            'phone'             => $row[17], 
+            'role'              => $row[6], 
+            'phone'             => $row[5], 
         ]);
     }
 
