@@ -32,12 +32,17 @@
                   </tr>
               </thead>
               <tbody>
+                @php
+                    $no = 1;
+                @endphp
+                @foreach ($eets as $key => $row)
                 <tr>
-                  <td style="vertical-align: middle; text-align: center">1</td>
-                  <td style="vertical-align: middle; text-align: center">ABD</td>
-                  <td style="vertical-align: middle; text-align: center">MUL</td>
-                  <td style="vertical-align: middle; text-align: center">0:15</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $key+1 }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->route_1 }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->route_2 }}</td>
+                  <td style="vertical-align: middle; text-align: center">{{ $row->formatted_eet }}</td>
                 </tr>
+                @endforeach
               </tbody>
           </table>
       </div>
