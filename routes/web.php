@@ -34,10 +34,22 @@ Route::view('/home','welcome');
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
 	
-	Route::get('/',[AdminController::class,'index'])->name('admin')->middleware(['can:admin']);
+	Route::get('/user',[AdminController::class,'index'])->name('admin')->middleware(['can:admin']);
 
-	//Route Rescource
-	Route::resource('/user','UserController')->middleware(['can:admin']);
+	Route::get('/adduser',[AdminController::class, 'adduser'])->name('adduser');
+	Route::post('/insertdata',[AdminController::class, 'insertdata'])->name('insert.data');
+
+	Route::get('/editdata/{id}',[AdminController::class, 'editdata'])->name('edit.data');
+	Route::post('/updatedata/{user}',[AdminController::class, 'updatedata'])->name('update.data');
+	Route::get('/delete/{id}',[AdminController::class, 'delete'])->name('delete');
+
+	//export Excel
+	Route::get('/exportexcel',[AdminController::class, 'exportexcel'])->name('export.excel');
+
+	//export Excel
+	Route::post('/importexcel',[AdminController::class, 'importexcel'])->name('import.excel');
+
+	
 
 	//Route View
 	

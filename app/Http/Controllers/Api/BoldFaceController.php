@@ -6,6 +6,7 @@ use App\Http\Requests\Api\SubmitBoldFaceS200Request;
 use App\Http\Requests\Api\SubmitBoldFaceS400Request;
 use App\Models\BoldFace;
 use Illuminate\Http\Request;
+use PDF;
 
 class BoldFaceController extends ApiController
 {
@@ -78,5 +79,16 @@ class BoldFaceController extends ApiController
             return $this->successResponse($boldface, 'success');
         }
         return $this->clientErrorResponse(null, 'Data yang dimasukkan tidak sesuai');
+    }
+
+    public function downloadPdf(BoldFace $boldface)
+    {
+        if ($boldface->type == "series-200") {
+            $pdf = PDF::loadview('pdf.bold-face.series-200', compact('boldface'));
+    	    return $pdf->download('laporan-bold-face.pdf');
+        }else{
+            $pdf = PDF::loadview('pdf.bold-face.series-400', compact('boldface'));
+    	    return $pdf->download('laporan-bold-face.pdf');
+        }
     }
 }

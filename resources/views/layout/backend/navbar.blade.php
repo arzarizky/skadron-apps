@@ -16,7 +16,7 @@
         @can('admin')
         <!-- Manage User -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="{{ route('user.index') }}">
+            <a class="nav-link dropdown-toggle" href="{{ route('admin') }}">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-100"></i>
                 <span class="d-none d-lg-inline text-gray-100 small">Manage User</span>
             </a>  
