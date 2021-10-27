@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
 
 use App\Models\User;
 
@@ -70,33 +73,27 @@ class AdminController extends Controller
         return redirect()->route('admin')->with('success',' Data Berhasil Di Update');
     }
 
+    public function exportexcel() 
+    {
+        return  Excel::download(new UsersExport, 'datauser.xlsx');
+    }
+
+    public function importexcel(Request $request){
+        $data = $request->file('file');
+
+        $namafile = $data->getClientOriginalName();
+        $data->move('UserData', $namafile);
+
+        Excel::import(new UsersImport, \public_path('/UserData/'.$namafile));
+        return \redirect()->back()->with('success',' Data Berhasil Di Import');
+    }
+
     public function delete($id){
         $data = User::find($id);
         $data->delete();
         return redirect()->route('admin')->with('success',' Data Berhasil Di Hapus');
     }
 
-    // public function exportpdf(){
-    //     $data = Employee::all();
-
-    //     view()->share('data', $data);
-    //     $pdf = PDF::loadview('datapegawai-pdf');
-    //     return $pdf->download('data.pdf');
-    // }
-
-    // public function exportexcel(){
-    //     return Excel::download(new EmployeeExport, 'datapegawai.xlsx');
-    // }
-
-    // public function importexcel(Request $request){
-    //     $data = $request->file('file');
-
-    //     $namafile = $data->getClientOriginalName();
-    //     $data->move('EmployeeData', $namafile);
-
-    //     Excel::import(new EmployeeImport, \public_path('/EmployeeData/'.$namafile));
-    //     return \redirect()->back();
-    // }
-
+   
     
 }

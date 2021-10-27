@@ -11,7 +11,7 @@
 
 <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
-  <p class="lead">Selamat datang di halaman <span><b>EET</b></span></p>
+  <p class="lead">Selamat datang di halaman <span><b>Manage User</b></span></p>
   <hr class="my-4">
   <p>Anda login sebagai {{ Auth::user()->role }}</p>
   <p>Selamat bekerja dan sehat selalu :)</p>
@@ -25,14 +25,57 @@
       </div>
   </div>
 </div>
-<div class="mb-3">
+<div class="mb-3 ">
   <a href="{{ route('adduser') }}" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>
     <span class="text">Tambah USER</span>
 </a>
+<button type="button" class="btn btn-info btn-icon-split ml-4" data-toggle="modal" data-target="#exampleModalCenter">
+  <span class="icon text-white-50">
+      <i class="fas fa-file-import"></i>
+  </span>
+  <span class="text">Import Excel</span>
+</button>
+<a href="{{ route('export.excel') }}" class="btn btn-primary btn-icon-split ml-4">
+  <span class="icon text-white-50">
+      <i class="fas fa-file-export"></i></i>
+  </span>
+  <span class="text">Export Excel</span>
+</a>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Import User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+           <div class="modal-body">
+             <div class="form-group">
+               <input type="file" name="file" required>
+             </div>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+             <button type="submit" class="btn btn-primary">Upload</button>
+           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="card">
   <div class="card-body">
       <div class="table-responsive">

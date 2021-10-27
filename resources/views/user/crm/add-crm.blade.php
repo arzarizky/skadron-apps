@@ -58,11 +58,16 @@
 <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/datatables-demo.js"></script>
 
-<script>
-  $('#summernote').summernote({
-    placeholder: 'MAUNULIS APANIIII',
-    tabsize: 2,
-    height: 500,
-  });
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#summernote').summernote();
+  })
+
+
+  // $('#summernote').summernote({
+  //   placeholder: 'MAUNULIS APANIIII',
+  //   tabsize: 2,
+  //   height: 500,
+  // });
 </script>
 @endpush
