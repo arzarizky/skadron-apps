@@ -25,7 +25,7 @@
       </div>
   </div>
 </div>
-<div class="mb-3 ">
+<div class="mb-3 ml-3">
   <a href="{{ route('adduser') }}" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
@@ -44,8 +44,13 @@
   </span>
   <span class="text">Export Excel</span>
 </a>
+<a href="{{ asset('Sample User Import.xlsx') }}" class="btn btn-secondary btn-icon-split float-right mr-3">
+  <span class="icon text-white-50">
+      <i class="fas fa-file-download"></i>
+  </span>
+  <span class="text">Download Sample User Import Excel</span>
+</a>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
