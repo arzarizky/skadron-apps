@@ -76,12 +76,13 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'user'],
 //bold-face-200
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'bold-face-200'],function(){
 	Route::get('/',[BoldFace200Controller::class,'index'])->name('bold.face.200');
-
+	Route::get('/download-pdf/{boldface}', [BoldFace200Controller::class, 'downloadPdf'])->name('bold.face.200.download-pdf');
 });
 
 //bold-face-400
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'bold-face-400'],function(){
 	Route::get('/',[BoldFace400Controller::class,'index'])->name('bold.face.400');
+	Route::get('/download-pdf/{boldface}', [BoldFace400Controller::class, 'downloadPdf'])->name('bold.face.400.download-pdf');
 
 });
 
@@ -90,7 +91,7 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'hurt'],
 	Route::get('/',[HurtController::class,'index'])->name('hurt');
 	Route::get('/detail-hurt',[HurtController::class,'detailhurt'])->name('detail.hurt');
 
-	Route::get('/pdf/{hurt}', [HurtController::class, 'downloadPdf']);
+	Route::get('/pdf/{hurt}', [HurtController::class, 'downloadPdf'])->name('hurt.download-pdf');
 
 });
 
@@ -101,13 +102,18 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eet'],f
 });
 
 //eod
-Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eod'],function(){
-	Route::get('/',[EodController::class,'index'])->name('eod');
-	Route::get('/add-eod',[EodController::class,'addeod'])->name('add.eod');
-	Route::get('/detail-eod',[EodController::class,'detaileod'])->name('detail.eod');
-	Route::get('/update-eod',[EodController::class,'updateeod'])->name('update.eod');
-
+Route::middleware(['auth'])->group(function () {
+	Route::resource('eod', EodController::class);
 });
+// Route::group(['namespace' => 'User', 'middleware' => 'auth'],function(){
+// 	// Route::get('/',[EodController::class,'index'])->name('eod');
+// 	// Route::get('/add-eod',[EodController::class,'addeod'])->name('add.eod');
+// 	// Route::post('/add-eod',[EodController::class,'store'])->name('eod.store');
+// 	// Route::get('/detail-eod/{eod}',[EodController::class,'detaileod'])->name('detail.eod');
+// 	// Route::put('/update-eod/{eod}',[EodController::class,'updateeod'])->name('update.eod');
+// 	// Route::delete('/delete-eod/{eod}', [EodController::class, 'destroy'])->name('eod.destroy');
+// 	Route::resource('eod', EodController::class);
+// });
 
 //crm
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'crm'],function(){

@@ -31,15 +31,25 @@
                       <th style="vertical-align: middle; text-align: center">No</th>
                       <th style="vertical-align: middle; text-align: center ">Tanggal</th>
                       <th style="vertical-align: middle; text-align: center ">Nama</th>
+                      <th style="vertical-align: middle; text-align: center ">Aksi</th>
                   </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td style="vertical-align: middle; text-align: center">1</td>
-                  <td style="vertical-align: middle; text-align: center">10/23/20</td>
-                  <td style="vertical-align: middle; text-align: center">Arza Rizky</td>
-                </tr>
-              </tbody>
+                @foreach ($boldFaces as $key => $boldFace)
+                  <tr>
+                    <td style="vertical-align: middle; text-align: center">{{$key+1}}</td>
+                    <td style="vertical-align: middle; text-align: center">{{$boldFace->created_at->format('d/m/Y')}}</td>
+                    <td style="vertical-align: middle; text-align: center">{{$boldFace->User->name}}</td>
+                    <td style="vertical-align: middle; text-align: center">
+                      <a href="{{ route('bold.face.400.download-pdf', $boldFace->id)}}" class="btn btn-warning btn-icon-split mr-3" target="_blank">
+                          <span class="icon text-white-50">
+                              <i class="fas fa-file-pdf"></i>
+                          </span>
+                          <span class="text">Download PDF</span>
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
           </table>
       </div>
   </div>

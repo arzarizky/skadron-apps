@@ -40,19 +40,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                         <tr>
-                            <td style="vertical-align: middle; text-align: center">1</td>
-                            <td style="vertical-align: middle; text-align: center">Arza Rizky</td>
-                            <td style="vertical-align: middle; text-align: center">10/24/2021</td>
-                            <td style="vertical-align: middle; text-align: center">
-                                <a href="{{ route('detail.hurt')}}" class="btn btn-warning btn-icon-split mr-3">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-info"></i>
-                                    </span>
-                                    <span class="text">Detail HURT</span>
-                                </a>
-                            </td>
-                        </tr>
+                        @foreach ($hurts as $key => $hurt)
+                            <tr>
+                                <td style="vertical-align: middle; text-align: center">{{$key + 1}}</td>
+                                <td style="vertical-align: middle; text-align: center">{{$hurt->User->name}}</td>
+                                <td style="vertical-align: middle; text-align: center">{{$hurt->submitted_at->format('d/m/Y H:i')}}</td>
+                                <td style="vertical-align: middle; text-align: center">
+                                    <a href="{{ route('hurt.download-pdf', $hurt->id)}}" class="btn btn-warning btn-icon-split mr-3" target="_blank">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span class="text">Download PDF</span>
+                                    </a>
+                                    {{-- <a href="{{ route('detail.hurt')}}" class="btn btn-warning btn-icon-split mr-3">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-info"></i>
+                                        </span>
+                                        <span class="text">Detail HURT</span>
+                                    </a> --}}
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -63,7 +63,7 @@
 
         <!-- EOD -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="{{ route('eod') }}">
+            <a class="nav-link dropdown-toggle" href="{{ route('eod.index') }}">
                 <i class="fas fa-plane fa-sm fa-fw mr-2 text-gray-100"></i>
                 <span class="d-none d-lg-inline text-gray-100 small">EOD</span>
             </a>  
