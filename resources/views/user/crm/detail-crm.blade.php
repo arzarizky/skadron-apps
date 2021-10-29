@@ -1,88 +1,106 @@
 @extends('layout.backend.app',[
-	'title' => ' Detail Crm',
+'title' => 'Add Crm',
 ])
 @section('content')
 
-<div class="card mb-4">
-    <div class=" mb-4 mt-4 text-center">
-        <h3> Detail CRM  </h3>
-    </div>
-</div>
-
-<div class="card">
-  <div class="card-deck mt-4 mb-4">
-    <div class="card ml-5 mr-5 col-lg-3">
-        <div class="card-body ">
-          <div class="border-bottom-danger">
-            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                <h3> RIWAYAT CRM </h3>
-            </div>
-          </div>
-          <div class=" mt-3 ">
-            <p>
-              CRM ditambahkan pada tanggal 
-              get->date(pada saat ditambahkan) oleh get->role(pada saat ditambahkan) bernama get->name(pada saat ditambahkan)
-            </p>
-            <hr class="my-4">
-            <p>
-              CRM diupdate pada tanggal 
-              get->date(pada saat diupdate) oleh get->role(pada saat diupdate) bernama get->name(pada saat diupdate)
-            </p>
-          </div>
+    <div class="card mb-4">
+        <div class=" mb-4 mt-4 text-center">
+            <h3> Tambah CRM </h3>
         </div>
     </div>
 
-    <div class="card ml-5 mr-5">
-        <div class="card-body">
-          <div class="border-bottom-danger">
-            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                <h3> ATTENTION </h3>
-            </div>
-          </div>
-          <form class="mt-4">
-            <textarea id="summernote" name="editordata"></textarea>
-          </form>
-          <div class="mt-4 ml-2">
-            <a href="{{ route('crm') }}" class="btn btn-secondary btn-icon-split mr-3">
-              <span class="icon text-white-50">
-                  <i class="fas fa-arrow-left"></i>
-              </span>
-              <span class="text">Kembali</span>
-            </a>
-            <a href="{{ route('update.crm') }}" class="btn btn-warning btn-icon-split mr-3">
-              <span class="icon text-white-50">
-                  <i class="fas fa-exclamation-triangle"></i>
-              </span>
-              <span class="text">Update CRM</span>
-            </a>
-          </div>
+    <div class="card">
+        <div class="card-deck mt-4 mb-4">
+            <form action="{{ route('crm.update', $crm->id) }}" method="POST" class="form-row">
+                @csrf
+                @method('PUT')
+                <div class="card ml-5 mr-5 col-lg-3">
+                    <div class="card-body ">
+                        <div class="border-bottom-danger">
+                            <div class="mt-2 mb-4 mt-4 text-center">
+                                <h3> TANGGAL </h3>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4 mb-4 mr-4 ml-4">
+                            <select name="date" class="form-control" required>
+                                @for ($i = 1; $i <= 31; $i++)
+                                    <option value="{{ $i }}" {{$crm->date == $i ? 'selected' : ''}}>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="border-bottom-danger">
+                            <div class="mt-2 mb-4 mt-4 text-center">
+                                <h3>Judul</h3>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4 mb-4 mr-4 ml-4">
+                            <input type="text" class="form-control" name="title" required value="{{$crm->title}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card ml-5 mr-5">
+                    <div class="card-body">
+                        <div class="border-bottom-danger">
+                            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
+                                <h3> ATTENTION </h3>
+                            </div>
+                        </div>
+                        <form class="mt-4">
+                            <textarea id="summernote" name="description" required>{{$crm->description}}</textarea>
+                        </form>
+                        <a href="{{ route('crm.index') }}" class="btn btn-secondary btn-icon-split mt-3 ml-3">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span class="text">Cancel</span>
+                        </a>
+                        <button class="btn btn-success btn-icon-split mt-3 ml-2">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Simpan CRM</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</div>
-</div>
 
 @endsection
 
 @push('js')
-<script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/datatables-demo.js"></script>
+    <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('template/backend/sb-admin-2') }}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('template/backend/sb-admin-2') }}/js/demo/datatables-demo.js"></script>
 
-<script>
-  $('#summernote').summernote({
-    placeholder: 'MAUNULIS APANIIII',
-    tabsize: 2,
-    height: 500
-  });
-</script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 400,
+                tabsize: 2,
+                height: 500,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript',
+                        'subscript', 'clear'
+                    ]],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ol', 'ul', 'paragraph', 'height']],
+                    ['table', ['table']],
+                    ['insert', ['link']],
+                    ['view', ['undo', 'redo', 'fullscreen', 'codeview', 'help']]
+                ]
+            });
+        })
 
-<script type="text/javascript">
-    var padatanggal = document.getElementById('pada_tanggal');
 
-    function tanggal() {
-      var hasiltanggal = document.getElementById('hasil_tanggal');
-      hasiltanggal.textContent = padatanggal.value;
-    }
-
-</script>
+        // $('#summernote').summernote({
+        //   placeholder: 'MAUNULIS APANIIII',
+        //   tabsize: 2,
+        //   height: 500,
+        // });
+    </script>
 @endpush

@@ -17,15 +17,6 @@ class Crm extends Model
     protected $table = 'crm';
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'published_at' => 'date',
-    ];
-
-    /**
      * The attributes that aren't mass assignable.
      *
      * @var array

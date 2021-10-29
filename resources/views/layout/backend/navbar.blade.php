@@ -71,7 +71,7 @@
 
         <!-- CRM -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="{{ route('crm') }}">
+            <a class="nav-link dropdown-toggle" href="{{ route('crm.index') }}">
                 <i class="fas fa-fighter-jet fa-sm fa-fw mr-2 text-gray-100"></i>
                 <span class="d-none d-lg-inline text-gray-100 small">CRM</span>
             </a>  

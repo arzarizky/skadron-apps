@@ -116,12 +116,12 @@ Route::middleware(['auth'])->group(function () {
 // });
 
 //crm
-Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'crm'],function(){
-	Route::get('/',[CrmController::class,'index'])->name('crm');
-	Route::get('/add-crm',[CrmController::class,'addcrm'])->name('add.crm');
-	Route::get('/detail-crm',[CrmController::class,'detailcrm'])->name('detail.crm');
-	Route::get('/update-crm',[CrmController::class,'updatecrm'])->name('update.crm');
-
+Route::group(['middleware' => 'auth'],function(){
+	// Route::get('/',[CrmController::class,'index'])->name('crm');
+	// Route::get('/add-crm',[CrmController::class,'addcrm'])->name('add.crm');
+	// Route::get('/detail-crm',[CrmController::class,'detailcrm'])->name('detail.crm');
+	// Route::get('/update-crm',[CrmController::class,'updatecrm'])->name('update.crm');
+	Route::resource('crm', CrmController::class);
 });
 
 Route::group(['namespace' => 'Auth','middleware' => 'guest'],function(){
