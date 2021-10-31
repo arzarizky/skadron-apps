@@ -3,8 +3,7 @@
     <!-- Top Navbar Left -->
     <ul class="navbar-nav">
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="{{route('home')}}">
                 <img src="{{ asset('template/backend/sb-admin-2') }}/img/skradone-logo.png" style="width: 27%; height:auto;" alt="">
                 <span class="d-none d-lg-inline text-gray-100 ml-2 mt-2"><h3><b>Skadron</b></h3></span>
             </a>  

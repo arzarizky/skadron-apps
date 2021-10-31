@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-<div class="jumbotron">
+{{-- <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
   <p class="lead">Selamat datang di halaman <span><b>HURT</b></span></p>
   <p class="lead">HITUNG RESIKO TERBANG-LAMBANGJA</p>
@@ -16,7 +16,7 @@
   <hr class="my-4">
   <p>Anda login sebagai {{ Auth::user()->role }}</p>
   <p>Selamat bekerja dan sehat selalu :)</p>
-</div>
+</div> --}}
 
 <div class="notify">
     <div class="card mb-4">

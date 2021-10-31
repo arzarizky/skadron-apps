@@ -1,14 +1,15 @@
 @extends('layout.backend.app',[
 'title' => 'Crm',
+'pageTitle' => 'Crm',
 ])
 
 @section('content')
-    <div class="jumbotron">
+    {{-- <div class="jumbotron">
         <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
         <p class="lead">Selamat datang di halaman CRM.</p>
         <hr class="my-4">
         <p>Anda login sebagai {{ Auth::user()->role }}.</p>
-    </div>
+    </div> --}}
 
     <div class="card mb-4 mt-4">
         <div class="border-bottom-danger">

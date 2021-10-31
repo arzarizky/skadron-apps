@@ -29,7 +29,7 @@ use App\Http\Controllers\User\CrmController;
 |
 */
 
-Route::view('/home','welcome');
+Route::view('/home','welcome')->name('home');
 
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
