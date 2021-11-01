@@ -19,9 +19,9 @@
                             <form class="user" method="POST" action="{{ route('login.post') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input name="nrp" required="" type="text" class="form-control form-control-user"
+                                    <input name="nomor_anggota" required="" type="text" class="form-control form-control-user"
                                         id="exampleInputNomorAnggota"
-                                        placeholder="Masukan NRP...">
+                                        placeholder="Masukan nomor anggota...">
                                 </div>
                                 <div class="form-group">
                                     <input name="password" required="" type="password" class="form-control form-control-user"
