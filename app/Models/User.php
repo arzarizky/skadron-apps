@@ -19,7 +19,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'nomor_anggota', 'pangkat', 'nrp', 'password','role', 'phone', 'kualifikasi', 'foto'
+        'name', 'pangkat', 'nrp', 'password','role', 'phone', 'kualifikasi', 'foto'
     ];
 
     /**
@@ -37,7 +37,6 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $casts = [
-        'nomer_aggota_verifed_at' => 'datetime',
         'otp_expired_at' => 'datetime',
     ];
 
