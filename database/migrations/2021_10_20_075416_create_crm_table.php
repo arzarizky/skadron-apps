@@ -15,8 +15,9 @@ class CreateCrmTable extends Migration
     {
         Schema::create('crm', function (Blueprint $table) {
             $table->id();
-            $table->date('published_at');
-            $table->text('attention')->nullable();
+            $table->integer('date')->unique();
+            $table->string('title');
+            $table->longText('description');
             $table->timestamps();
         });
     }

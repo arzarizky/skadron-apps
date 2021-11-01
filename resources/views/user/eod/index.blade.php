@@ -1,14 +1,15 @@
 @extends('layout.backend.app',[
 	'title' => 'Eod',
+  'pageTitle' => 'Eod',
 ])
 
 @section('content')
-<div class="jumbotron">
+{{-- <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
   <p class="lead">Selamat datang di halaman EOD.</p>
   <hr class="my-4">
   <p>Anda login sebagai {{ Auth::user()->role }}.</p>
-</div>
+</div> --}}
 
 <div class="card mb-4 mt-4">
   <div class="border-bottom-danger">
@@ -19,7 +20,7 @@
   </div>
 </div>
 <div class="mb-3">
-  <a href="{{ route('add.eod') }}" class="btn btn-success btn-icon-split">
+  <a href="{{ route('eod.create') }}" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
         <i class="fas fa-plus"></i>
     </span>
@@ -34,30 +35,34 @@
                   <tr>
                       <th style="vertical-align: middle; text-align: center">No</th>
                       <th style="vertical-align: middle; text-align: center ">Tanggal</th>
-                      <th style="vertical-align: middle; text-align: center ">Pembuat</th>
+                      <th style="vertical-align: middle; text-align: center ">Judul</th>
+                      <th style="vertical-align: middle; text-align: center ">File</th>
                       <th style="vertical-align: middle; text-align: center ">Action</th>
                   </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td style="vertical-align: middle; text-align: center">1</td>
-                  <td style="vertical-align: middle; text-align: center">10/23/20</td>
-                  <td style="vertical-align: middle; text-align: center">Admin(get role yang menambkan) Arza Rizky(get name yang menambahkan)</td>
-                  <td style="vertical-align: middle; text-align: center">
-                    <a href="{{ route('detail.eod') }}" class="btn btn-warning btn-icon-split mr-3">
-                      <span class="icon text-white-50">
-                          <i class="fas fa-info"></i>
-                      </span>
-                      <span class="text">Detail EOD</span>
-                    </a>
-                    <a href="#" class="btn btn-danger btn-icon-split">
-                      <span class="icon text-white-50">
-                          <i class="fas fa-trash"></i>
-                      </span>
-                      <span class="text">Hapus EOD</span>
-                    </a>
-                  </td>
-                </tr>
+                @foreach ($eods as $key => $eod)
+                  <tr>
+                    <td style="vertical-align: middle; text-align: center">{{$key + 1}}</td>
+                    <td style="vertical-align: middle; text-align: center">{{$eod->date}}</td>
+                    <td style="vertical-align: middle; text-align: center">{{$eod->title}}</td>
+                    <td style="vertical-align: middle; text-align: center">
+                      <a href="{{$eod->file_url}}" target="_blank">Lihat File</a>
+                    </td>
+                    <td style="vertical-align: middle; text-align: center">
+                      <form action="{{route('eod.destroy', $eod->id)}}" method="POST" class="d-inline">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger btn-icon-split">
+                          <span class="icon text-white-50">
+                              <i class="fas fa-trash"></i>
+                          </span>
+                          <span class="text">Hapus EOD</span>
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
               </tbody>
           </table>
       </div>
@@ -87,5 +92,11 @@
       hasiltanggal.textContent = padatanggal.value;
     }
 
+</script>
+
+<script>
+  @if (Session:: has('success'))
+  toastr.success("{{ Session::get('success') }}")
+  @endif
 </script>
 @endpush

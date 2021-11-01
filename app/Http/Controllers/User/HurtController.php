@@ -11,7 +11,8 @@ class HurtController extends Controller
 {
     public function index()
     {
-        return view('user.hurt.index');
+        $hurts = Hurt::all();
+        return view('user.hurt.index', compact('hurts'));
     }
 
     public function downloadPdf(Hurt $hurt)

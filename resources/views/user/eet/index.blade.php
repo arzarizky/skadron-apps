@@ -3,13 +3,13 @@
 	'pageTitle' => 'EET',
 ])
 @section('content')
-<div class="jumbotron">
+{{-- <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
   <p class="lead">Selamat datang di halaman <span><b>EET</b></span></p>
   <hr class="my-4">
   <p>Anda login sebagai {{ Auth::user()->role }}</p>
   <p>Selamat bekerja dan sehat selalu :)</p>
-</div>
+</div> --}}
 
 <div class="card mb-4 mt-4">
   <div class="border-bottom-danger">

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Eod extends Model
 {
@@ -22,13 +23,22 @@ class Eod extends Model
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
-     * The attributes that should be cast to native types.
+     * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $casts = [
-        'published_at' => 'date',
-    ];
+    protected $appends = ['file_url'];
+
+    /**
+     * Get the 
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFileUrlAttribute()
+    {
+        return $this->file_pdf ? Storage::url($this->file_pdf) : null;
+    }
 }

@@ -31,4 +31,9 @@ class Hurt extends Model
     protected $casts = [
         'submitted_at' => 'datetime',
     ];
+
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

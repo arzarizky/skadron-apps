@@ -60,7 +60,7 @@
             </div>
             <label class="form-label"></label>
             <div class="card mb-3">
-                <img src="{{ asset('fotouser/'.$data->foto) }}" class="mt-4 ml-3" alt="" style="width: 400px;">
+                <img src="{{ $data->foto_url }}" class="mt-4 ml-3" alt="" style="width: 400px;">
                 <input name="foto" type="file" name="foto" class="mb-3 mt-3 ml-3">
             </div>
             <div class="form-group">

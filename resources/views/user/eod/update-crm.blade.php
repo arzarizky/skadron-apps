@@ -22,7 +22,7 @@
             <textarea id="summernote" name="editordata"></textarea>
           </form>
           <div class="mt-4 ml-2">
-            <a href="{{ route('detail.eod') }}" class="btn btn-secondary btn-icon-split mr-3">
+            <a href="{{ route('detail.eod', $eod->id) }}" class="btn btn-secondary btn-icon-split mr-3">
               <span class="icon text-white-50">
                   <i class="fas fa-arrow-left"></i>
               </span>
@@ -49,7 +49,7 @@
 
 <script>
   $('#summernote').summernote({
-    placeholder: 'MAUNULIS APANIIII',
+    placeholder: '',
     tabsize: 2,
     height: 500
   });

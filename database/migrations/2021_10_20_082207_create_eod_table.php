@@ -15,8 +15,9 @@ class CreateEodTable extends Migration
     {
         Schema::create('eod', function (Blueprint $table) {
             $table->id();
-            $table->date('published_at');
-            $table->text('attention')->nullable();
+            $table->integer('date')->unique();
+            $table->string('title');
+            $table->string('file_pdf');
             $table->timestamps();
         });
     }

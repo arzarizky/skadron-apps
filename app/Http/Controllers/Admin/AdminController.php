@@ -39,8 +39,8 @@ class AdminController extends Controller
         $data = User::create($request->all());
         $data->password = Hash::make($request->password);
         if($request->hasFile('foto')){
-            $request->file('foto')->move('fotouser/', $request->file('foto')->getClientOriginalName());
-            $data->foto = $request->file('foto')->getClientOriginalName();
+            // $request->file('foto')->move('fotouser/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->store('fotouser');
             $data->save();
         }
         return redirect()->route('admin')->with('success',' User Berhasil Di Tambahkan');
@@ -64,8 +64,8 @@ class AdminController extends Controller
         }
 
         if($request->hasFile('foto')){
-            $request->file('foto')->move('fotouser/', $request->file('foto')->getClientOriginalName());
-            $user->foto = $request->file('foto')->getClientOriginalName();
+            // $request->file('foto')->move('fotouser/', $request->file('foto')->getClientOriginalName());
+            $user->foto = $request->file('foto')->store('fotouser');
         }
 
         $user->save();

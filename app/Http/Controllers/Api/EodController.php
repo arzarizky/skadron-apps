@@ -10,7 +10,7 @@ class EodController extends ApiController
 {
     public function index(Request $request)
     {
-        $eod = Eod::where('published_at', $request->published_at)->first();
+        $eod = Eod::where('date', $request->date)->first();
 
         return $this->successResponse($eod, "success");
     }

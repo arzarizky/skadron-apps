@@ -25,7 +25,7 @@
         </div>
         <div style="width: 30%;display: inline-block;"></div>
         <div style="width: 23%;display: inline-block;">
-            <h4>Nama : {{auth('api')->user()->name}}</h4>
+            <h4>Nama : {{auth()->user()->name}}</h4>
             <h4>Tanggal : {{$boldface->created_at->format('d-m-Y H:i')}}</h4>
             <h4>Nilai : 100</h4>
         </div>
