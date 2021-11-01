@@ -28,10 +28,6 @@
                 <input type="text" name="name" class="form-control" placeholder="Isi nama lengkap">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">NOMOR ANGGOTA</label>
-                <input type="text" name="nomor_anggota" class="form-control" placeholder="Isi nomor anggota">
-            </div>
-            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">NRP</label>
                 <input type="text" name="nrp" class="form-control" placeholder="Isi nrp">
             </div>

@@ -20,7 +20,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input name="nrp" required="" type="text" class="form-control form-control-user"
-                                        id="exampleInputNomorAnggota"
+                                        id="exampleInputNRP"
                                         placeholder="Masukan NRP...">
                                 </div>
                                 <div class="form-group">
