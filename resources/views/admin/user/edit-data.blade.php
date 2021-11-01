@@ -28,10 +28,6 @@
                 <input type="text" name="name" class="form-control" value="{{ $data->name }}">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">NOMOR ANGGOTA</label>
-                <input type="text" name="nomor_anggota" class="form-control" value="{{ $data->nomor_anggota }}">
-            </div>
-            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">NRP</label>
                 <input type="text" name="nrp" class="form-control" value="{{ $data->nrp }}">
             </div>
@@ -72,4 +68,5 @@
         </form>
     </div>
 </div>
+
 @stop
