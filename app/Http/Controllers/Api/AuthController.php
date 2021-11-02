@@ -17,7 +17,7 @@ class AuthController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        $credentials = request(['nomor_anggota', 'password']);
+        $credentials = request(['nrp', 'password']);
         
         if (! $token = auth('api')->attempt($credentials)) {
             $response['message'] = "Nomor anggota atau password salah!";
@@ -50,7 +50,7 @@ class AuthController extends Controller
 
     public function forgotPassword(ForgotPasswordRequest $request)
     {
-        $user = User::where('nomor_anggota', $request->nomor_anggota)->first();
+        $user = User::where('nrp', $request->nrp)->first();
 
         $otp = rand(1000, 9999);
 
@@ -79,11 +79,11 @@ class AuthController extends Controller
     public function checkOTP(Request $request)
     {
         $validatedData = $request->validate([
-            'nomor_anggota' => 'required|string',
+            'nrp' => 'required|string',
             'otp' => 'required|string',
         ]);
 
-        $user = User::where('nomor_anggota', $request->input('nomor_anggota'))->where('otp', $request->input('otp'))->first();
+        $user = User::where('nrp', $request->input('nrp'))->where('otp', $request->input('otp'))->first();
         if (!$user) {
             $response['message'] = "Wrong OTP";
             return get_json_response($response, 404);
@@ -106,13 +106,13 @@ class AuthController extends Controller
     public function changePassword(Request $request)
     {
         $validatedData = $request->validate([
-            'nomor_anggota' => 'required|string',
+            'nrp' => 'required|string',
             'key' => 'required|string',
             'password' => 'required|string',
             'password_match' => 'required|string|same:password'
         ]);
 
-        $user = User::where('nomor_anggota', $request->input('nomor_anggota'))->where('key', $request->input('key'))->first();
+        $user = User::where('nrp', $request->input('nrp'))->where('key', $request->input('key'))->first();
         if (!$user) {
             $response['message'] = "User tidak ditemukan";
             return get_json_response($response, 404);

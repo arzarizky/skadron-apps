@@ -24,7 +24,7 @@ class ForgotPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            "nomor_anggota" => 'required|exists:users,nomor_anggota'
+            "nrp" => 'required|exists:users,nrp'
         ];
     }
 }
