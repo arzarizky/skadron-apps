@@ -28,7 +28,7 @@ class BoldFaceController extends ApiController
         strtoupper($request->premise_4_3) == "APR LIGHT" && strtoupper($request->answer_4_3) == "CX LIGHT ON" &&
         strtoupper($request->premise_4_4) == "IN OPERATIVE ENGINE" && strtoupper($request->answer_4_4) == "IDENTIFY" &&
         strtoupper($request->premise_4_5) == "EMERGENCY SHUT DOWN LEVER(FAILED)" && strtoupper($request->answer_4_5) == "FEATHER" &&
-        strtoupper($request->premise_4_6) == "AIR SPEED" && strtoupper($request->answer_4_6) == "MAINT 94-96 KIAS" &&
+        strtoupper($request->premise_4_6) == "AIR SPEED" && strtoupper($request->answer_4_6) == "MAINT 94-96" &&
         strtoupper($request->premise_5_1) == "EMERGENCY SHUT DOWN LEVER" && strtoupper($request->answer_5_1) == "FEATHER" &&
         strtoupper($request->premise_5_2) == "FUEL BOOSTER PUMP" && strtoupper($request->answer_5_2) == "OFF" &&
         strtoupper($request->premise_5_3) == "FIRE DISCHARGE BUTTON" && strtoupper($request->answer_5_3) == "PRESS AS REQ" &&

@@ -21,12 +21,12 @@
           <div class=" mt-3 ">
             <p>
               EOD ditambahkan pada tanggal 
-              get->date(pada saat ditambahkan) oleh get->role(pada saat ditambahkan) bernama get->name(pada saat ditambahkan)
+              {{$eod->created_at->format('d/m/Y')}} oleh Admin
             </p>
             <hr class="my-4">
             <p>
               EOD diupdate pada tanggal 
-              get->date(pada saat diupdate) oleh get->role(pada saat diupdate) bernama get->name(pada saat diupdate)
+              {{$eod->updated_at->format('d/m/Y')}} oleh Admin
             </p>
           </div>
         </div>
@@ -34,28 +34,32 @@
 
     <div class="card ml-5 mr-5">
         <div class="card-body">
-          <div class="border-bottom-danger">
-            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                <h3> ATTENTION </h3>
+          <form action="{{route('update.eod', $eod->id)}}" method="POST">
+          @method('PUT')
+          @csrf
+            <div class="border-bottom-danger">
+              <div class="ml-4 mt-2 mb-4 mt-4 text-center">
+                  <h3> ATTENTION </h3>
+              </div>
             </div>
-          </div>
-          <form class="mt-4">
-            <textarea id="summernote" name="editordata"></textarea>
+            <div class="mt-4">
+              <textarea id="summernote" name="attention">{{$eod->attention}}</textarea>
+            </div>
+            <div class="mt-4 ml-2">
+              <a href="{{ route('eod') }}" class="btn btn-secondary btn-icon-split mr-3">
+                <span class="icon text-white-50">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+                <span class="text">Kembali</span>
+              </a>
+              <button href="{{ route('update.eod', $eod->id) }}" class="btn btn-warning btn-icon-split mr-3">
+                <span class="icon text-white-50">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <span class="text">Update EOD</span>
+              </button>
+            </div>
           </form>
-          <div class="mt-4 ml-2">
-            <a href="{{ route('eod') }}" class="btn btn-secondary btn-icon-split mr-3">
-              <span class="icon text-white-50">
-                  <i class="fas fa-arrow-left"></i>
-              </span>
-              <span class="text">Kembali</span>
-            </a>
-            <a href="{{ route('update.eod') }}" class="btn btn-warning btn-icon-split mr-3">
-              <span class="icon text-white-50">
-                  <i class="fas fa-exclamation-triangle"></i>
-              </span>
-              <span class="text">Update EOD</span>
-            </a>
-          </div>
         </div>
     </div>
 </div>
@@ -70,9 +74,20 @@
 
 <script>
   $('#summernote').summernote({
-    placeholder: 'MAUNULIS APANIIII',
+    placeholder: '',
     tabsize: 2,
-    height: 500
+    height: 500,
+    toolbar: [
+        [ 'style', [ 'style' ] ],
+        [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+        [ 'fontname', [ 'fontname' ] ],
+        [ 'fontsize', [ 'fontsize' ] ],
+        [ 'color', [ 'color' ] ],
+        [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+        [ 'table', [ 'table' ] ],
+        [ 'insert', [ 'link'] ],
+        [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
+    ]
   });
 </script>
 

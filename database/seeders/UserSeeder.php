@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name'              => 'Arza Rizky Nova Ramadhani',
-                'nomor_anggota'     => '123456789',
                 'pangkat'           => 'Mayor Nav',
                 'nrp'               => '987654321',
                 'phone'             => '082244862271',
@@ -32,7 +31,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'name'              => 'Derik Dwi Heavyanto',
-                'nomor_anggota'     => '987654321',
                 'pangkat'           => 'jendral',
                 'nrp'               => '123456789',
                 'password'          => Hash::make('jendral'),
@@ -43,7 +41,6 @@ class UserSeeder extends Seeder
             ],
             [
                 'name'              => 'Annga',
-                'nomor_anggota'     => '12345',
                 'pangkat'           => 'anggota',
                 'nrp'               => '123456789',
                 'password'          => Hash::make('user'),

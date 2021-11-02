@@ -9,13 +9,13 @@
 
 @section('content')
 
-<div class="jumbotron">
+{{-- <div class="jumbotron">
   <h1 class="display-4">Hello, {{ Auth::user()->name }}</h1>
   <p class="lead">Selamat datang di halaman <span><b>Manage User</b></span></p>
   <hr class="my-4">
   <p>Anda login sebagai {{ Auth::user()->role }}</p>
   <p>Selamat bekerja dan sehat selalu :)</p>
-</div>
+</div> --}}
 
 <div class="card mb-4 mt-4">
   <div class="border-bottom-danger">
@@ -99,7 +99,6 @@
                   <tr>
                       <th style="vertical-align: middle; text-align: center">No</th>
                       <th style="vertical-align: middle; text-align: center ">NAMA</th>
-                      <th style="vertical-align: middle; text-align: center ">NOMOR ANGGOTA</th>
                       <th style="vertical-align: middle; text-align: center ">NRP</th>
                       <th style="vertical-align: middle; text-align: center ">NO HP</th>
                       <th style="vertical-align: middle; text-align: center ">PANGKAT</th>
@@ -117,7 +116,6 @@
                 <tr>
                   <td style="vertical-align: middle; text-align: center">{{ $index + $data->firstItem() }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->name }}</td>
-                  <td style="vertical-align: middle; text-align: center">{{ $row->nomor_anggota }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->nrp }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->phone }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->pangkat }}</td>
@@ -165,7 +163,7 @@
 
       swal({
           title: "Yakin ?",
-          text: "Kamu akan menghapus data pegawai dengan nama " + name + " ",
+          text: "Kamu akan menghapus user dengan nama " + name + " ",
           icon: "warning",
           buttons: true,
           dangerMode: true,
@@ -173,11 +171,11 @@
           .then((willDelete) => {
               if (willDelete) {
                   window.location = "/admin/delete/" + userid + ""
-                  swal("Data berhasil di hapus", {
+                  swal("User berhasil di hapus", {
                       icon: "success",
                   });
               } else {
-                  swal("Data tidak jadi dihapus");
+                  swal("User tidak jadi dihapus");
               }
           });
   });

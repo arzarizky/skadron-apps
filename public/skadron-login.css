@@ -1,0 +1,85 @@
+body {
+	background-color: #d3efff !important;
+	background-image: url("https://apps.markashosting.com/files/on-boarding-bg.png") !important;
+	background-repeat: no-repeat;
+	background-position: 1589px -300px;
+	-webkit-animation: MoveUpDown 30s linear infinite;
+	animation: MoveUpDown 30s linear infinite;
+}
+
+@-webkit-keyframes MoveUpDown {
+	0% {
+		background-position: -421px 870px;
+		background-size: 400px;
+	}
+	50% {
+		background-position: 1589px -300px;
+		background-size: 1000px;
+	}
+}
+
+@keyframes MoveUpDown {
+	0% {
+		background-position: -421px 870px;
+		background-size: 400px;
+	}
+	50% {
+		background-position: 1589px -300px;
+		background-size: 1000px;
+	}
+}
+
+.container {
+	margin-top: 200px;
+}
+
+.card.o-hidden.border-0.shadow-lg.my-5 {
+	border-radius: 20px;
+	border: 1px solid #0071b3 !important;
+}
+
+.text-gray-900 {
+	text-indent: -9999px;
+}
+
+.text-gray-900:after {
+	content: "";
+	background-image: url("../template/backend/sb-admin-2/img/skradone-logo.png");
+	height: 90px;
+	width: 87px;
+	display: block;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	background-size: 87px;
+}
+
+.btn-primary {
+	background-color: #0071b3;
+	border-color: #0071b3;
+}
+
+a {
+	color: #0071b3;
+}
+
+.p-5 .text-center:not(:first-child) {
+	display: none;
+}
+
+.p-5 hr {
+	display: none;
+}
+
+@media only screen and (max-width: 430px) {
+	.container {
+    margin-top: 60px;
+  }
+	.card-body.p-0 {
+    height: calc(80vh - 100px);
+  }
+	body {
+		-webkit-animation: none;
+		animation: none;
+		background-position: -200px -100px;
+	}
+}

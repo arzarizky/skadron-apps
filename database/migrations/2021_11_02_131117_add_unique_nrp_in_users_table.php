@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEodTable extends Migration
+class AddUniqueNrpInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateEodTable extends Migration
      */
     public function up()
     {
-        Schema::create('eod', function (Blueprint $table) {
-            $table->id();
-            $table->integer('date')->unique();
-            $table->string('title');
-            $table->string('file_pdf');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('nrp')->unique()->change();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateEodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eod');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('nrp')->change();
+        });
     }
 }

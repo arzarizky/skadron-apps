@@ -28,10 +28,6 @@
                 <input type="text" name="name" class="form-control" value="{{ $data->name }}">
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">NOMOR ANGGOTA</label>
-                <input type="text" name="nomor_anggota" class="form-control" value="{{ $data->nomor_anggota }}">
-            </div>
-            <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">NRP</label>
                 <input type="text" name="nrp" class="form-control" value="{{ $data->nrp }}">
             </div>
@@ -60,7 +56,7 @@
             </div>
             <label class="form-label"></label>
             <div class="card mb-3">
-                <img src="{{ asset('fotouser/'.$data->foto) }}" class="mt-4 ml-3" alt="" style="width: 400px;">
+                <img src="{{ $data->foto_url }}" class="mt-4 ml-3" alt="" style="width: 400px;">
                 <input name="foto" type="file" name="foto" class="mb-3 mt-3 ml-3">
             </div>
             <div class="form-group">
@@ -72,4 +68,5 @@
         </form>
     </div>
 </div>
+
 @stop

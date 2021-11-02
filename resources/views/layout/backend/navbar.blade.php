@@ -3,8 +3,7 @@
     <!-- Top Navbar Left -->
     <ul class="navbar-nav">
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="{{route('home')}}">
                 <img src="{{ asset('template/backend/sb-admin-2') }}/img/skradone-logo.png" style="width: 27%; height:auto;" alt="">
                 <span class="d-none d-lg-inline text-gray-100 ml-2 mt-2"><h3><b>Skadron</b></h3></span>
             </a>  
@@ -63,7 +62,7 @@
 
         <!-- EOD -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="{{ route('eod') }}">
+            <a class="nav-link dropdown-toggle" href="{{ route('eod.index') }}">
                 <i class="fas fa-plane fa-sm fa-fw mr-2 text-gray-100"></i>
                 <span class="d-none d-lg-inline text-gray-100 small">EOD</span>
             </a>  
@@ -71,7 +70,7 @@
 
         <!-- CRM -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="{{ route('crm') }}">
+            <a class="nav-link dropdown-toggle" href="{{ route('crm.index') }}">
                 <i class="fas fa-fighter-jet fa-sm fa-fw mr-2 text-gray-100"></i>
                 <span class="d-none d-lg-inline text-gray-100 small">CRM</span>
             </a>  

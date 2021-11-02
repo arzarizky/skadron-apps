@@ -10,7 +10,7 @@ class CrmController extends ApiController
 {
     public function index(Request $request)
     {
-        $crm = Crm::where('published_at', $request->published_at)->first();
+        $crm = Crm::where('date', $request->date)->first();
         
         return $this->successResponse($crm, "success");
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -40,6 +41,13 @@ class User extends Authenticatable implements JWTSubject
         'otp_expired_at' => 'datetime',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['foto_url'];
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
@@ -48,5 +56,16 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    /**
+     * Get the 
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFotoUrlAttribute()
+    {
+        return $this->foto ? Storage::url($this->foto) : null;
     }
 }

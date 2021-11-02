@@ -15,9 +15,33 @@
         h4{
             margin: 0;
         }
+        
+        .watermark {
+            position: absolute;
+            top: 3%;
+            left: 35%;
+            fill-opacity: 0.7;
+            opacity: 0.7;;
+            width: 500px;
+        }
+
+        .span-watermark {
+            position: absolute;
+            top: 12%;
+            left: 51%;
+            width: 500px;
+            color: #0070b3;
+            font-size: 25px;
+            font-weight: bold;
+            opacity: 0.7;
+            fill-opacity: 0.7;
+            /* z-index: -1; */
+        }
     </style>
 </head>
 <body>
+    <img src="{{public_path('watermark_no_opacity.png')}}" class="watermark">
+    <span class="span-watermark">{{ $boldface->created_at->format('d F Y \P\u\k\u\l H:i') }} WIB</span>
     <div class="row">
         <div class="text-center" style="width: 40%;display: inline-block;">
             <h3>WING 2 LANUD ABD SALEH <br>SKADRON UDARA 4</h3>
@@ -25,7 +49,7 @@
         </div>
         <div style="width: 30%;display: inline-block;"></div>
         <div style="width: 23%;display: inline-block;">
-            <h4>Nama : {{auth('api')->user()->name}}</h4>
+            <h4>Nama : {{auth()->user()->name}}</h4>
             <h4>Tanggal : {{$boldface->created_at->format('d-m-Y H:i')}}</h4>
             <h4>Nilai : 100</h4>
         </div>

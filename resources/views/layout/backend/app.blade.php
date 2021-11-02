@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
     integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="{{asset('template/backend/sb-admin-2/img/skradone-logo.png')}}">
+    <link rel="stylesheet" href="{{asset('skadron.css')}}">
     @stack('css')
 </head>
 
@@ -56,6 +58,9 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Skadron Apps {{ date('Y') }}</span>
+                        <span style="display: inline-block; width: 100%; margin-top:10px">Developed by <a title="Professional Web &amp; Apps
+                            Development" alt="Professional Web &amp; Apps Development" target="_blank" href="https://markashosting.com">Markas
+                            Hosting</a>.</span>
                     </div>
                 </div>
             </footer>
