@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('pangkat');
             $table->string('kualifikasi');
             $table->string('nomor_anggota');
-            $table->timestamp('nomer_anggota_verifed_at')->nullable();
+            $table->timestamp('nomer_aggota_verifed_at')->nullable();
             $table->string('nrp');
             $table->string('foto')->nullable();
             $table->string('password');
