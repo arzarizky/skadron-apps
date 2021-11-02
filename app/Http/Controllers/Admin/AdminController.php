@@ -17,7 +17,6 @@ class AdminController extends Controller
 
         if($request->has('search')){
             $data = User::where('name','LIKE','%' .$request->search.'%')
-            ->orWhere('nomor_anggota','LIKE','%' .$request->search.'%')
             ->orWhere('pangkat','LIKE','%' .$request->search.'%')
             ->orWhere('kualifikasi','LIKE','%' .$request->search.'%')
             ->orWhere('nrp','LIKE','%' .$request->search.'%')
@@ -44,7 +43,7 @@ class AdminController extends Controller
             $data->foto = $request->file('foto')->store('fotouser');
             $data->save();
         }
-        return redirect()->route('admin')->with('success',' Data Berhasil Di Tambahkan');
+        return redirect()->route('admin')->with('success',' User Berhasil Di Tambahkan');
     }
 
     public function editdata($id){
@@ -70,7 +69,7 @@ class AdminController extends Controller
         }
 
         $user->save();
-        return redirect()->route('admin')->with('success',' Data Berhasil Di Update');
+        return redirect()->route('admin')->with('success',' Data User Berhasil Di Update');
     }
 
     public function exportexcel() 
@@ -85,13 +84,13 @@ class AdminController extends Controller
         $data->move('UserData', $namafile);
 
         Excel::import(new UsersImport, \public_path('/UserData/'.$namafile));
-        return \redirect()->back()->with('success',' Data Berhasil Di Import');
+        return \redirect()->back()->with('success',' Data user Berhasil Di Import');
     }
 
     public function delete($id){
         $data = User::find($id);
         $data->delete();
-        return redirect()->route('admin')->with('success',' Data Berhasil Di Hapus');
+        return redirect()->route('admin')->with('success',' User Berhasil Di Hapus');
     }
 
    
