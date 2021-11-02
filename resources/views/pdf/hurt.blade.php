@@ -32,11 +32,33 @@
         h4 {
             margin: 0px;
         }
+        .watermark {
+            position: absolute;
+            top: 38%;
+            left: 31%;
+            width: 500px;
+            fill-opacity: 0.7;
+            opacity: 0.7;
+        }
 
+        .span-watermark {
+            position: absolute;
+            top: 50%;
+            left: 43%;
+            width: 500px;
+            color: #0070b3;
+            font-size: 30px;
+            font-weight: bold;
+            opacity: 0.7;
+            fill-opacity: 0.7;
+            /* z-index: -1; */
+        }
     </style>
 </head>
 
 <body>
+    <img src="{{public_path('watermark_no_opacity.png')}}" class="watermark">
+    <span class="span-watermark">{{ $hurt->submitted_at->format('d F Y \P\u\k\u\l H:i') }} WIB</span>
     <div style="width: 50%; display: inline-block; float: left;">
         <h4>Nama : {{ $name }}</h4>
         <h4>Tanggal : {{ $hurt->submitted_at->format('d/m/Y H:i') }}</h4>
