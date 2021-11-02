@@ -20,14 +20,13 @@ class UsersImport implements ToModel, WithStartRow
         }
 
         return new User([
-            'name'              => $row[0], 
-            'nomor_anggota'     => $row[1], 
-            'pangkat'           => $row[2],  
-            'kualifikasi'       => $row[3], 
-            'nrp'               => $row[4], 
-            'password'          => Hash::make($row[8]),
-            'role'              => $row[6], 
-            'phone'             => $row[5], 
+            'name'              => $row[0],  
+            'pangkat'           => $row[1],  
+            'kualifikasi'       => $row[2], 
+            'nrp'               => $row[3], 
+            'password'          => Hash::make($row[6]),
+            'role'              => $row[5], 
+            'phone'             => $row[4], 
         ]);
     }
 
