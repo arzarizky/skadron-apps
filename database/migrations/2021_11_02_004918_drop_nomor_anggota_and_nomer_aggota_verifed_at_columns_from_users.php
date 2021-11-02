@@ -26,7 +26,8 @@ class DropNomorAnggotaAndNomerAggotaVerifedAtColumnsFromUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('nomor_anggota');
+            $table->timestamp('nomer_anggota_verifed_at')->nullable();
         });
     }
 }

@@ -16,33 +16,34 @@
                 <div class="card ml-5 mr-5 col-lg-3">
                     <div class="card-body ">
                         <div class="border-bottom-danger">
-                            <div class="mt-2 mb-4 mt-4 text-center">
+                            <div class="mt-2 mb-1 mt-4 text-center">
                                 <h3> TANGGAL </h3>
                             </div>
                         </div>
-                        <div class="text-center mt-4 mb-4 mr-4 ml-4">
+                        <div class="text-center mr-4 ml-4">
                             <select name="date" class="form-control" required>
                                 @for ($i = 1; $i <= 31; $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
-                        <div class="border-bottom-danger">
-                            <div class="mt-2 mb-4 mt-4 text-center">
-                                <h3>Judul</h3>
-                            </div>
-                        </div>
-                        <div class="text-center mt-4 mb-4 mr-4 ml-4">
-                            <input type="text" class="form-control" name="title" required>
-                        </div>
+                        
                     </div>
                 </div>
 
                 <div class="card ml-5 mr-5">
                     <div class="card-body">
                         <div class="border-bottom-danger">
-                            <div class="ml-4 mt-2 mb-4 mt-4 text-center">
-                                <h3> ATTENTION </h3>
+                            <div class="mt-2 mt-3 text-left ml-3">
+                                <h3>JUDUL</h3>
+                            </div>
+                        </div>
+                        <div class="text-center mb-1 mr-4 ml-3">
+                            <input type="text" class="form-control" name="title" required>
+                        </div>
+                        <div class="border-bottom-danger">
+                            <div class="ml-3 mt-1 mb-2 mt-3 text-left">
+                                <h3> KONTEN CRM </h3>
                             </div>
                         </div>
                         <form class="mt-4">
