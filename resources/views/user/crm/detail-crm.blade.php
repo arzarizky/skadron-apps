@@ -4,8 +4,8 @@
 @section('content')
 
     <div class="card mb-4">
-        <div class=" mb-4 mt-4 text-center">
-            <h3> Tambah CRM </h3>
+        <div class=" mb-4 mt-4 ml-4">
+            <h3 class="ml-4"><b> Edit CRM </h3>
         </div>
     </div>
 
