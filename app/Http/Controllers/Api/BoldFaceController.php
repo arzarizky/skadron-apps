@@ -24,7 +24,7 @@ class BoldFaceController extends ApiController
         strtoupper($request->premise_3_4) == "BRAKES" && strtoupper($request->answer_3_4) == "APPLY AS REQ" &&
         strtoupper($request->premise_3_5) == "POWER LEVER" && strtoupper($request->answer_3_5) == "REVERSE AS REQ" &&
         strtoupper($request->premise_4_1) == "RPM LEVERS" && strtoupper($request->answer_4_1) == "T/O OR LAND" &&
-        strtoupper($request->premise_4_2) == "POWER LEVERS" && strtoupper($request->answer_4_2) == "MAX EGT 650 C" &&
+        strtoupper($request->premise_4_2) == "POWER LEVERS" && strtoupper($request->answer_4_2) == "MAX EGT 650" &&
         strtoupper($request->premise_4_3) == "APR LIGHT" && strtoupper($request->answer_4_3) == "CX LIGHT ON" &&
         strtoupper($request->premise_4_4) == "IN OPERATIVE ENGINE" && strtoupper($request->answer_4_4) == "IDENTIFY" &&
         strtoupper($request->premise_4_5) == "EMERGENCY SHUT DOWN LEVER(FAILED)" && strtoupper($request->answer_4_5) == "FEATHER" &&
