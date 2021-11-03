@@ -52,7 +52,7 @@
             left: 35%;
             width: 950px;
             color: #0070b3;
-            font-size: 42px;
+            font-size: 35px;
             font-weight: bold;
             opacity: 0.15;
             fill-opacity: 0.15;

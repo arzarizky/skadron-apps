@@ -32,10 +32,10 @@
 
         .span-watermark {
             position: absolute;
-            top: 60%;
-            left: 40%;
+            top: 61%;
+            left: 45%;
             color: #0070b3;
-            font-size: 31px;
+            font-size: 20px;
             font-weight: bold;
             opacity: 0.15;
             fill-opacity: 0.15;
