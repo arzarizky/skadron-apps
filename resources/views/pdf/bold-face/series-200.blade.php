@@ -18,24 +18,32 @@
 
         .watermark {
             position: absolute;
-            top: 3%;
-            left: 35%;
-            fill-opacity: 0.7;
-            opacity: 0.7;;
-            width: 500px;
+            top: 50%;
+            left: 15%;
+            fill-opacity: 0.15;
+            opacity: 0.15;
+            width: 700px;
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
         }
 
         .span-watermark {
             position: absolute;
-            top: 12%;
-            left: 51%;
-            width: 500px;
+            top: 60%;
+            left: 40%;
             color: #0070b3;
-            font-size: 25px;
+            font-size: 31px;
             font-weight: bold;
-            opacity: 0.7;
-            fill-opacity: 0.7;
-            /* z-index: -1; */
+            opacity: 0.15;
+            fill-opacity: 0.15;
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
         }
     </style>
 </head>

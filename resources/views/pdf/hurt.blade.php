@@ -34,24 +34,33 @@
         }
         .watermark {
             position: absolute;
-            top: 38%;
-            left: 31%;
-            width: 500px;
-            fill-opacity: 0.7;
-            opacity: 0.7;
+            top: 37%;
+            left: 13%;
+            width: 950px;
+            fill-opacity: 0.15;
+            opacity: 0.15;
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
         }
 
         .span-watermark {
             position: absolute;
-            top: 50%;
-            left: 43%;
-            width: 500px;
+            top: 55%;
+            left: 35%;
+            width: 950px;
             color: #0070b3;
-            font-size: 30px;
+            font-size: 42px;
             font-weight: bold;
-            opacity: 0.7;
-            fill-opacity: 0.7;
-            /* z-index: -1; */
+            opacity: 0.15;
+            fill-opacity: 0.15;
+            -webkit-transform: rotate(-10deg);
+            -moz-transform: rotate(-10deg);
+            -o-transform: rotate(-10deg);
+            -ms-transform: rotate(-10deg);
+            transform: rotate(-10deg);
         }
     </style>
 </head>
