@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\EetController;
 use App\Http\Controllers\Api\EodController;
 use App\Http\Controllers\Api\HurtController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,9 @@ Route::post('/check-otp', [AuthController::class, 'checkOTP']);
 Route::post('/change-pass', [AuthController::class, 'changePassword']);
 
 Route::middleware(['jwt.verify'])->group(function () {
+    Route::get('profile', [UserController::class, 'getProfile']);
+    Route::post('profile/update-photo', [UserController::class, 'updatePhotoProfile']);
+
     Route::post('activate-account', [AuthController::class, 'activateAccount']);
 
     Route::get('/crm', [CrmController::class, 'index']);
