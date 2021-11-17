@@ -208,7 +208,7 @@
         </table>
         <br>
         <h4 class="center" style="width: 90%">KESIMPULAN</h4>
-        @if ($hurt->total_score < 35)
+        @if ($hurt->total_score > 0 && $hurt->total_score < 35)
             <table>
                 <thead>
                     <tr>
@@ -250,7 +250,7 @@
                 </tbody>
             </table>
         @endif
-        @if ($hurt->total_score > 50)
+        @if ($hurt->total_score > 50 || $hurt->total_score == 0)
             <table>
                 <thead>
                     <tr>

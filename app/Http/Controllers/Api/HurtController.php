@@ -29,32 +29,32 @@ class HurtController extends ApiController
         //management command n control
         $managementCommandNControl = "";
         $managementCommandNControlScore = 0;
-        if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'DAYS') {
-            $managementCommandNControl = "DAN SKADRON 4, LATIHAN, DAYS";
+        if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'DAY') {
+            $managementCommandNControl = "DAN SKADRON 4, LATIHAN, DAY";
             $managementCommandNControlScore = 1;
         }
         if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'NIGHT') {
             $managementCommandNControl = "DAN SKADRON 4, LATIHAN, NIGHT";
             $managementCommandNControlScore = 1;
         }
-        if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'DAYS') {
-            $managementCommandNControl = "DAN SKADRON 4, OPERASI, DAYS";
+        if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'DAY') {
+            $managementCommandNControl = "DAN SKADRON 4, OPERASI, DAY";
             $managementCommandNControlScore = 1;
         }
         if ($request->management_command_n_control == 'DAN SKADRON 4' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'NIGHT') {
             $managementCommandNControl = "DAN SKADRON 4, OPERASI, NIGHT";
             $managementCommandNControlScore = 2;
         }
-        if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'DAYS') {
-            $managementCommandNControl = "KASIOPS/DANFLIGHT, LATIHAN, DAYS";
+        if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'DAY') {
+            $managementCommandNControl = "KASIOPS/DANFLIGHT, LATIHAN, DAY";
             $managementCommandNControlScore = 2;
         }
         if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'LATIHAN' && $request->management_command_n_control_waktu_terbang == 'NIGHT') {
             $managementCommandNControl = "KASIOPS/DANFLIGHT, LATIHAN, NIGHT";
             $managementCommandNControlScore = 3;
         }
-        if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'DAYS') {
-            $managementCommandNControl = "KASIOPS/DANFLIGHT, OPERASI, DAYS";
+        if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'DAY') {
+            $managementCommandNControl = "KASIOPS/DANFLIGHT, OPERASI, DAY";
             $managementCommandNControlScore = 2;
         }
         if ($request->management_command_n_control == 'KASIOPS/DANFLIGHT' && $request->management_command_n_control_penugasan == 'OPERASI' && $request->management_command_n_control_waktu_terbang == 'NIGHT') {
@@ -100,6 +100,9 @@ class HurtController extends ApiController
             case '10-12 HOURS':
                 $managementWorkingHourScore = 4;
                 break;
+            case '> 12 HOURS':
+                $managementWorkingHourScore = 0;
+                break;
         }
 
         //management flying hour
@@ -114,6 +117,9 @@ class HurtController extends ApiController
                 break;
             case '7-8 HOURS':
                 $managementFlyingHourScore = 3;
+                break;
+            case '> 8 HOURS':
+                $managementFlyingHourScore = 0;
                 break;
         }
 
@@ -182,6 +188,9 @@ class HurtController extends ApiController
                 break;
             case 'LEBIH DARI 1 TAHUN TIDAK TERBANG':
                 $machineAircraftStatusScore = 4;
+                break;
+            case 'NO GO ITEM':
+                $machineAircraftStatusScore = 0;
                 break;
         }
 
@@ -357,6 +366,30 @@ class HurtController extends ApiController
                         break;
                 }
                 break;
+            case 'FOTO FLIGHT':
+                switch ($request->mission_kualifikasi_penerbang) {
+                    case 'A':
+                        $mission = "FOTO FLIGHT, A";
+                        $missionScore = 1;
+                        break;
+                    case 'B':
+                        $mission = "FOTO FLIGHT, B";
+                        $missionScore = 1;
+                        break;
+                    case 'C':
+                        $mission = "FOTO FLIGHT, C";
+                        $missionScore = 1;
+                        break;
+                    case 'D':
+                        $mission = "FOTO FLIGHT, D";
+                        $missionScore = 2;
+                        break;
+                    case 'E':
+                        $mission = "FOTO FLIGHT, E";
+                        $missionScore = 2;
+                        break;
+                }
+                break;
             case 'AIR LANDED':
                 switch ($request->mission_kualifikasi_penerbang) {
                     case 'A':
@@ -497,6 +530,30 @@ class HurtController extends ApiController
                         break;
                     case 'E':
                         $mission = "PROF CX PHASE I, E";
+                        $missionScore = 0;
+                        break;
+                }
+                break;
+            case 'PROF CX PHASE II':
+                switch ($request->mission_kualifikasi_penerbang) {
+                    case 'A':
+                        $mission = "PROF CX PHASE II, A";
+                        $missionScore = 1;
+                        break;
+                    case 'B':
+                        $mission = "PROF CX PHASE II, B";
+                        $missionScore = 0;
+                        break;
+                    case 'C':
+                        $mission = "PROF CX PHASE II, C";
+                        $missionScore = 0;
+                        break;
+                    case 'D':
+                        $mission = "PROF CX PHASE II, D";
+                        $missionScore = 0;
+                        break;
+                    case 'E':
+                        $mission = "PROF CX PHASE II, E";
                         $missionScore = 0;
                         break;
                 }
@@ -759,6 +816,10 @@ class HurtController extends ApiController
                 $mediaWeather = "VIS 2000 - BLW MINIMA";
                 $mediaWeatherScore = 4;
                 break;
+            case 'WX BLW MINIMA':
+                $mediaWeather = "WX BLW MINIMA";
+                $mediaWeatherScore = 0;
+                break;
         }
 
         //media area operation
@@ -846,6 +907,9 @@ class HurtController extends ApiController
             case 'UNPAVEMENT':
                 $mediaRunwayConditionScore = 4;
                 break;
+            case 'UNPAVEMENT BASAH':
+                $mediaRunwayConditionScore = 0;
+                break;
         }
 
         //media runway length
@@ -861,8 +925,11 @@ class HurtController extends ApiController
             case '1100-1200 M':
                 $mediaRunwayLengthScore = 3;
                 break;
-            case '1000-700  M':
+            case '1000-700 M':
                 $mediaRunwayLengthScore = 4;
+                break;
+            case '<700 M':
+                $mediaRunwayLengthScore = 0;
                 break;
         }
 
@@ -1186,6 +1253,31 @@ class HurtController extends ApiController
                 break;
         }
 
+        // check apakah ada no go item
+        // $total = 0;
+        // if ($managementPlanningScore != 0 && $managementCommandNControlScore != 0 && 
+        //     $managementSortieScore != 0 && $managementWorkingHourScore != 0 && 
+        //     $managementFlyingHourScore != 0 && $managementTakeOffWeightScore != 0 && 
+        //     $machineAircraftTypeScore != 0 && $machineAircraftStatusScore != 0 && 
+        //     $missionScore != 0 && $mediaWeatherScore != 0 && 
+        //     $mediaAreaOperationScore != 0 && $mediaAerodromeScore != 0 && 
+        //     $mediaRunwayConditionScore != 0 && $mediaRunwayLengthScore != 0 && 
+        //     $mediaTerrainScore != 0 && $manQualificationScore != 0 && 
+        //     $manCrewCombinationPilotScore != 0 && $manCrewCurrencyScore != 0 && 
+        //     $manCrewTestScore != 0 && $manFlyingHourScore != 0) {
+
+            $total = $managementPlanningScore + $managementCommandNControlScore + 
+                $managementSortieScore + $managementWorkingHourScore + 
+                $managementFlyingHourScore + $managementTakeOffWeightScore + 
+                $machineAircraftTypeScore + $machineAircraftStatusScore + 
+                $missionScore + $mediaWeatherScore + 
+                $mediaAreaOperationScore + $mediaAerodromeScore + 
+                $mediaRunwayConditionScore + $mediaRunwayLengthScore + 
+                $mediaTerrainScore + $manQualificationScore + 
+                $manCrewCombinationPilotScore + $manCrewCurrencyScore + 
+                $manCrewTestScore + $manFlyingHourScore;
+        // }
+
         $hurt = Hurt::create([
             'user_id' => auth('api')->user()->id,
             'submitted_at' => date("Y-m-d H:i:s"),
@@ -1229,7 +1321,7 @@ class HurtController extends ApiController
             'man_crew_test_score' => $manCrewTestScore,
             'man_flying_hour' => $manFlyingHour,
             'man_flying_hour_score' => $manFlyingHourScore,
-            'total_score' => $managementPlanningScore + $managementCommandNControlScore + $managementSortieScore + $managementWorkingHourScore + $managementFlyingHourScore + $managementTakeOffWeightScore + $machineAircraftTypeScore + $machineAircraftStatusScore + $missionScore + $mediaWeatherScore + $mediaAreaOperationScore + $mediaAerodromeScore + $mediaRunwayConditionScore + $mediaRunwayLengthScore + $mediaTerrainScore + $manQualificationScore + $manCrewCombinationPilotScore + $manCrewCurrencyScore + $manCrewTestScore + $manFlyingHourScore
+            'total_score' => $total
         ]);
 
         return $this->successResponse($hurt, "success");
