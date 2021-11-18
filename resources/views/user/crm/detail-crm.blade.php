@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="text-center mb-1 mr-4 ml-3">
-                            <input type="text" class="form-control" name="title" required>
+                            <input type="text" class="form-control" name="title" required value="{{$crm->title}}">
                         </div>
                         <div class="border-bottom-danger">
                             <div class="ml-3 mt-1 mb-2 mt-3 text-left">

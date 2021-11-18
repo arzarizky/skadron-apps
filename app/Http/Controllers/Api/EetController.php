@@ -27,7 +27,15 @@ class EetController extends ApiController
             'route_2' => 'required|string',
         ]);
 
-        $routes = Eet::where('route_1', $request->route_1)->where('route_2', $request->route_2)->get();
+        $routes = Eet::where(function($query) use ($request){
+                        $query->where('route_1', $request->route_1);
+                        $query->where('route_2', $request->route_2);
+                    })
+                    ->orWhere(function($query) use ($request){
+                        $query->where('route_2', $request->route_1);
+                        $query->where('route_1', $request->route_2);
+                    })
+                    ->get();
         return $this->successResponse($routes, 'success');
     }
 }
