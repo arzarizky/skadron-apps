@@ -31,6 +31,9 @@ use App\Http\Controllers\User\CrmController;
 
 Route::view('/home','welcome')->name('home');
 
+Route::view('/term-and-condition', 'term_n_condition');
+Route::view('/privacy-policy', 'privacy_policy');
+
 
 Route::group(['namespace' => 'Admin','middleware' => 'auth','prefix' => 'admin'],function(){
 	
