@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
             [
                 'name'              => 'Annga',
                 'pangkat'           => 'anggota',
-                'nrp'               => '123456789',
+                'nrp'               => '12345',
                 'password'          => Hash::make('user'),
                 'role'              => 'anggota',
                 'phone'             => '082244862271',
