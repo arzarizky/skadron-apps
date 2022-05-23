@@ -102,6 +102,8 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'hurt'],
 //eet
 Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eet'],function(){
 	Route::get('/',[EetController::class,'index'])->name('eet');
+	Route::post('/add',[EetController::class,'store'])->name('eet.add');
+	Route::post('/{id}/update',[EetController::class,'update'])->name('eet.edit');
 
 });
 

@@ -20,6 +20,15 @@
   </div>
 </div>
 
+<div class="mb-3 ml-3">
+  <button type="button" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#tambah-data-eet">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus"></i>
+    </span>
+    <span class="text">Tambah Data EET</span>
+  </button>
+</div>
+
 <div class="card">
   <div class="card-body">
       <div class="table-responsive">
@@ -29,6 +38,7 @@
                       <th style="vertical-align: middle; text-align: center">No</th>
                       <th colspan="2" style="vertical-align: middle; text-align: center ">Rute</th>
                       <th style="vertical-align: middle; text-align: center ">EET</th>
+                      <th style="vertical-align: middle; text-align: center ">ACTION</th>
                   </tr>
               </thead>
               <tbody>
@@ -41,6 +51,17 @@
                   <td style="vertical-align: middle; text-align: center">{{ $row->route_1 }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->route_2 }}</td>
                   <td style="vertical-align: middle; text-align: center">{{ $row->formatted_eet }}</td>
+                  <td style="vertical-align: middle; text-align: center">
+                    <div> 
+                      <button class="btn btn-warning btn-icon-split" data-toggle="modal" data-target="#update-eet{{ $row->id }}" style="padding-right: 15px;">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-exclamation-triangle"></i>
+                      </span>
+                      <span class="text">Edit EET</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
                 </tr>
                 @endforeach
               </tbody>
@@ -48,4 +69,88 @@
       </div>
   </div>
 </div>
+
+<!-- Modal Tambah Data EET -->
+<div class="modal fade" id="tambah-data-eet" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="tambah-data-eet-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="tambah-data-eet-label">Tambah Data EET</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route('eet.add')}}" method="POST">
+          @csrf
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">Rute 1</label>
+            <input type="text" name="route_1" class="form-control text-dark" id="rute-1" placeholder="Masukan Data Rute 1">
+          </div>
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">Rute 2</label>
+            <input type="text" name="route_2" class="form-control text-dark" id="rute-2" placeholder="Masukan Data Rute 2">
+          </div>
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">EET</label>
+            <input type="number" name="eet" class="form-control text-dark" id="eet" placeholder="Masukan EET">
+            <div class="card p-3 mt-3 mb-2">
+              <small class="text-danger">Note   : Masukan EET Dalam Format Menit</small>
+              <small class="text-danger">Contoh : 72 = 1:12  </small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Tambahkan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+@php
+  $no = 1;
+@endphp
+@foreach ($eets as $key => $row)
+<!-- Modal Update Data EET -->
+<div class="modal fade" id="update-eet{{ $row->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="update-data-eet-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="update-data-eet-label">Update Data EET</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/eet/{{$row->id}}/update" method="POST">
+          @csrf
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">Rute 1</label>
+            <input type="text" name="route_1" class="form-control text-dark" id="rute-1" value="{{ $row->route_1 }}" placeholder="Masukan Data Rute 1">
+          </div>
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">Rute 2</label>
+            <input type="text" name="route_2" class="form-control text-dark" id="rute-2" value="{{ $row->route_2 }}" placeholder="Masukan Data Rute 2">
+          </div>
+          <div class="form-group">
+            <label class="text-dark" for="rute-1">EET</label>
+            <input type="number" name="eet" class="form-control text-dark" id="eet" value="{{ $row->eet }}" placeholder="Masukan EET">
+            <div class="card p-3 mt-3 mb-2">
+              <small class="text-danger">Note   : Masukan EET Dalam Format Menit</small>
+              <small class="text-danger">Contoh : 72 = 1:12  </small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+
 @endsection
