@@ -60,6 +60,14 @@
                       <span class="text">Edit EET</span>
                       </button>
                     </div>
+                    <div> 
+                      <button class="btn btn-danger btn-icon-split mt-2 delete-eet" route-1="{{$row->route_1}}" route-2="{{$row->route_1}}" eet="{{$row->eet}}" id-eet="{{$row->id}}">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-trash"></i>
+                      </span>
+                      <span class="text">Delete EET</span>
+                      </button>
+                    </div>
                   </td>
                 </tr>
                 </tr>
@@ -154,3 +162,35 @@
 @endforeach
 
 @endsection
+
+@push('js')
+
+<script>
+  $('.delete-eet').click(function(){
+
+    var id_eet = $(this).attr('id-eet');
+    var route_1 = $(this).attr('route-1');
+    var route_2 = $(this).attr('route-2');
+    var eet = $(this).attr('eet');
+
+    swal({
+      title: 'Yakin Menghapus?',
+      text: ''+route_1+' ke '+route_2+' dengan EET '+eet+' Akan Dihapus!',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        window.location = "/eet/delete/"+id_eet+"";
+        swal('Data '+route_1+' ke '+route_2+' dengan EET '+eet+' Terhapus', {
+          icon: 'success',
+        });
+      } else {
+        swal('Data '+route_1+' ke '+route_2+' dengan EET '+eet+' Tidak Jadi Dihapus');
+      }
+    });
+  });
+</script>
+    
+@endpush

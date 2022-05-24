@@ -104,7 +104,7 @@ Route::group(['namespace' => 'User','middleware' => 'auth' ,'prefix' => 'eet'],f
 	Route::get('/',[EetController::class,'index'])->name('eet');
 	Route::post('/add',[EetController::class,'store'])->name('eet.add');
 	Route::post('/{id}/update',[EetController::class,'update'])->name('eet.edit');
-
+	Route::get('/delete/{id}', [EetController::class, 'destroy'])->name('eet.delete');
 });
 
 //eod

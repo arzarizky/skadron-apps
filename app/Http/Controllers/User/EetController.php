@@ -47,4 +47,13 @@ class EetController extends Controller
 
         return redirect()->route('eet')->with('success',' Data Berhasil Di Update');
     }
+
+    public function destroy($id)
+    {
+        $eet = Eet::find($id);
+        $eet->delete();
+     
+        return redirect()->route('eet')
+                        ->with('success','Banner ' . $eet->title . ' Delete Successfully.');
+    }
 }
