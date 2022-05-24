@@ -61,7 +61,7 @@
                       </button>
                     </div>
                     <div> 
-                      <button class="btn btn-danger btn-icon-split mt-2 delete-eet" route-1="{{$row->route_1}}" route-2="{{$row->route_1}}" eet="{{$row->formatted_eet}}" id-eet="{{$row->id}}">
+                      <button class="btn btn-danger btn-icon-split mt-2 delete-eet" route-1="{{$row->route_1}}" route-2="{{$row->route_2}}" eet="{{$row->formatted_eet}}" id-eet="{{$row->id}}">
                       <span class="icon text-white-50">
                         <i class="fas fa-trash"></i>
                       </span>
